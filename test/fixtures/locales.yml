@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut: 
+  dv: 
+  direccion: 
+
+two:
+  rut: 
+  dv: 
+  direccion: 
