@@ -16,7 +16,7 @@
 #
 default: &default
   adapter: postgis
-  encoding: unicode
+  encoding: utf8
   username: postgres
   password: postgres
   # For details on connection pooling, see rails configuration guide
