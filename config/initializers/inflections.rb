@@ -7,6 +7,13 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   # inflect.plural /^(ox)$/i, '\1en'
   # inflect.singular /^(ox)en/i, '\1'
   inflect.irregular 'local', 'locales'
+  inflect.irregular 'usuario', 'usuarios'
+  inflect.irregular 'rol', 'roles'
+  inflect.irregular 'representante', 'representantes'
+  inflect.irregular 'visita', 'visitas'
+  inflect.irregular 'pago', 'pagos'
+  inflect.irregular 'metodo_pago', 'metodos_pagos'
+
   # inflect.uncountable %w( fish sheep )
 end
 

@@ -1,14 +1,310 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>PatentesNunoa</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PatentesNunoa</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta name="description" content="Elephant is a front-end template created to help you build modern web applications, fast and in a professional manner.">
+  <meta property="og:url" content="http://demo.naksoid.com/elephant">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The fastest way to build modern admin site for any platform, browser, or device">
+  <meta property="og:description" content="Elephant is a front-end template created to help you build modern web applications, fast and in a professional manner.">
+  <meta property="og:image" content="http://demo.naksoid.com/elephant/img/ae165ef33d137d3f18b7707466aa774d.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@naksoid">
+  <meta name="twitter:creator" content="@naksoid">
+  <meta name="twitter:title" content="The fastest way to build modern admin site for any platform, browser, or device">
+  <meta name="twitter:description" content="Elephant is a front-end template created to help you build modern web applications, fast and in a professional manner.">
+  <meta name="twitter:image" content="http://demo.naksoid.com/elephant/img/ae165ef33d137d3f18b7707466aa774d.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
+
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+</head>
+<body class="layout layout-header-fixed">
+<div class="layout-header">
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand navbar-brand-center" href="/">
+        <img class="navbar-brand-logo" src="/img/logo-inverse.svg" alt="Elephant">
+      </a>
+      <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#sidenav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="bars">
+              <span class="bar-line bar-line-1 out"></span>
+              <span class="bar-line bar-line-2 out"></span>
+              <span class="bar-line bar-line-3 out"></span>
+            </span>
+        <span class="bars bars-x">
+              <span class="bar-line bar-line-4"></span>
+              <span class="bar-line bar-line-5"></span>
+            </span>
+      </button>
+      <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="arrow-up"></span>
+        <span class="ellipsis ellipsis-vertical">
+              <img class="ellipsis-object" width="32" height="32" src="/img/0180441436.jpg" alt="Marcelo Pizzaro">
+            </span>
+      </button>
+    </div>
+    <div class="navbar-toggleable">
+      <nav id="navbar" class="navbar-collapse collapse">
+        <button class="sidenav-toggler hidden-xs" title="Collapse sidenav ( [ )" aria-expanded="true" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="bars">
+                <span class="bar-line bar-line-1 out"></span>
+                <span class="bar-line bar-line-2 out"></span>
+                <span class="bar-line bar-line-3 out"></span>
+                <span class="bar-line bar-line-4 in"></span>
+                <span class="bar-line bar-line-5 in"></span>
+                <span class="bar-line bar-line-6 in"></span>
+              </span>
+        </button>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="visible-xs-block">
+            <h4 class="navbar-text text-center">Hi, Marcelo Pizzaro</h4>
+          </li>
+          <li class="hidden-xs hidden-sm">
+            <form class="navbar-search navbar-search-collapsed">
+              <div class="navbar-search-group">
+                <input class="navbar-search-input" type="text" placeholder="Search for people, companies, and more&hellip;">
+                <button class="navbar-search-toggler" title="Expand search form ( S )" aria-expanded="false" type="submit">
+                  <span class="icon icon-search icon-lg"></span>
+                </button>
+                <button class="navbar-search-adv-btn" type="button">Advanced</button>
+              </div>
+            </form>
+          </li>
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
+                  <span class="icon-with-child hidden-xs">
+                    <span class="icon icon-bell-o icon-lg"></span>
+                    <span class="badge badge-danger badge-above right">0</span>
+                  </span>
+              <span class="visible-xs-block">
+                    <span class="icon icon-bell icon-lg icon-fw"></span>
+                    <span class="badge badge-danger pull-right">0</span>
+                    Notifications
+                  </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+              <div class="dropdown-header">
+                <h5 class="dropdown-heading">Notificaciones recientes</h5>
+              </div>
+              <div class="dropdown-body">
+                <div class="list-group list-group-divided custom-scrollbar">
+                  <!--r-->
+                </div>
+              </div>
+              <div class="dropdown-footer">
+                <a class="dropdown-btn" href="#">Mostrar todas</a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown hidden-xs">
+            <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
+              <!--<img class="rounded" width="36" height="36" src="/img/0180441436.jpg" alt="Marcelo Pizzaro">--> Marcelo Pizzaro
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <a href="upgrade.html">
+                  <h5 class="navbar-upgrade-heading">
+                    Activalo por más tiempo
+                    <small class="navbar-upgrade-notification">Producto disponible por <%= 30*6 %> días más</small>
+                  </h5>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li class="navbar-upgrade-version">Version: 0.8</li>
+              <li class="divider"></li>
+              <li><a href="#">Soporte</a></li>
+              <li><a href="#">Perfil</a></li>
+              <li><a href="#">Cerrar session</a></li>
+            </ul>
+          </li>
+          <li class="visible-xs-block">
+            <a href="contacts.html">
+              <span class="icon icon-users icon-lg icon-fw"></span>
+              Contacts
+            </a>
+          </li>
+          <li class="visible-xs-block">
+            <a href="profile.html">
+              <span class="icon icon-user icon-lg icon-fw"></span>
+              Profile
+            </a>
+          </li>
+          <li class="visible-xs-block">
+            <a href="login-1.html">
+              <span class="icon icon-power-off icon-lg icon-fw"></span>
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="layout-main">
+  <div class="layout-sidebar">
+    <div class="layout-sidebar-backdrop"></div>
+    <div class="layout-sidebar-body">
+      <div class="custom-scrollbar">
+        <nav id="sidenav" class="sidenav-collapse collapse">
+          <ul class="sidenav">
+            <li class="sidenav-search hidden-md hidden-lg">
+              <form class="sidenav-form" action="/">
+                <div class="form-group form-group-sm">
+                  <div class="input-with-icon">
+                    <input class="form-control" type="text" placeholder="Search…">
+                    <span class="icon icon-search input-icon"></span>
+                  </div>
+                </div>
+              </form>
+            </li>
+            <li class="sidenav-heading">Inicio</li>
+            <li class="sidenav-item">
+              <a href="/" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-home"></span>
+                <span class="sidenav-label">Dashboards</span>
+              </a>
+
+            </li>
+            <li class="sidenav-item">
+              <a href="#">
+
+                <span class="sidenav-icon icon icon-th"></span>
+                <span class="sidenav-label">Rutas</span>
+              </a>
+            </li>
+            <li class="sidenav-item">
+              <a href="#">
+                <span class="sidenav-icon icon icon-columns"></span>
+                <span class="sidenav-label">Deudores</span>
+              </a>
+            </li>
+
+            <li class="sidenav-item">
+              <a href="#" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-briefcase"></span>
+                <span class="sidenav-label">Ingresar pago </span>
+              </a>
+
+            </li>
+
+
+            <li class="sidenav-item">
+              <a href="#">
+                <span class="sidenav-icon icon icon-columns"></span>
+                <span class="sidenav-label">Usuarios</span>
+              </a>
+            </li>
+
+
+            <li class="sidenav-heading">Localizador </li>
+            <li class="sidenav-item">
+              <a href="<%= url_for(controller:'patentes/localizar',action: 'index') %>" aria-haspopup="true" data-turbolinks-track="false">
+                <span class="sidenav-icon icon icon-briefcase"></span>
+                <span class="sidenav-label">Buscador de puntos</span>
+              </a>
+
+            </li>
+
+            <li class="sidenav-item">
+              <a href="#" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-briefcase"></span>
+                <span class="sidenav-label">Buscador de areas</span>
+              </a>
+
+            </li>
+
+
+
+
+            <li class="sidenav-heading">Patentes</li>
+            <li class="sidenav-item has-subnav">
+              <a href="#" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-briefcase"></span>
+                <span class="sidenav-label">Tipos</span>
+              </a>
+              <ul class="sidenav-subnav collapse">
+                <li class="sidenav-subheading">Tipos de patente</li>
+                <li><a href="arrows.html">Agregar</a></li>
+                <li><a href="arrows.html">Editar</a></li>
+                <li><a href="badges.html">Eliminar</a></li>
+
+              </ul>
+            </li>
+
+
+
+            <li class="sidenav-heading">Locales</li>
+
+
+            <% Patente.select(:nombre).group(:nombre).order(:nombre).all().each do |patente| %>
+            <li class="sidenav-item has-subnav  <%= active(url_for(controller: 'patentes/patentes',patente:patente.nombre) )  %> <%= open(url_for(controller: 'patentes/patentes',patente:patente.nombre ) )  %> <%= active(url_for(controller: 'patentes/localizar',patente:patente.nombre) )  %> <%= open(url_for(controller: 'patentes/localizar',patente:patente.nombre ) )  %>">
+              <a href="#" aria-haspopup="true">
+                <span class="sidenav-icon icon icon-shopping-cart"></span>
+                <span class="sidenav-label"><%= patente.nombre %></span>
+              </a>
+              <ul class="sidenav-subnav collapse">
+                <li class="sidenav-subheading"></li>
+                <li class="<%= active(url_for(controller: 'patentes/patentes',patente:patente.nombre),level=5 )  %>"><a href="<%= url_for(controller:'patentes/patentes',action: 'new',patente:patente.nombre) %>">Agregar</a></li>
+                <li class="<%= active(url_for(controller: 'patentes/patentes',patente:patente.nombre),level=4 )  %>"><a href="<%= url_for(controller:'patentes/patentes',action: 'index',patente:patente.nombre) %>">Buscar</a></li>
+              </ul>
+            </li>
+
+                <% end %>
+
+            <li class="sidenav-item" data-no-turbolink>
+              <a href="/patentes/error" >
+                <span class="sidenav-icon icon icon-cloud-upload"></span>
+                <span class="sidenav-label">Errores</span>
+              </a>
+            </li>
+
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <%= yield %>
+
+  <div class="layout-footer">
+    <div class="layout-footer-body">
+      <small class="version">Version 0.8</small>
+      <small class="copyright">2017 &copy; Powered By <a href="http://naksoid.com/">HeyThink</a></small>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUs6mymqBDxxTi7xfhOy13b3oIGsQhIqQ"></script>
+
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
+
+
+
+</body>
 </html>

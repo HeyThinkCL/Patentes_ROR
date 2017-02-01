@@ -1,0 +1,76 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <h1 class="title-bar-title">
+        <span class="d-ib">Localizador de patentes</span>
+
+      </h1>
+      <p class="title-bar-description">
+        <small>Utiliza el buscador de lado derecho para ubicar los locales.</small>
+      </p>
+    </div>
+
+    <div class="demo-map">
+      <div class="row">
+        <div class="col-md-6 col-md-push-6">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <h3>Buscador de puntos
+
+              </h3>
+              <div class="form form-horizontal">
+              <%= react_component 'mapas' %>
+
+                <h3>Resultado
+
+                </h3>
+                <div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 derecha" for="form-control-1">Rol</label>
+
+                    <div class="col-sm-4">
+                      <p id="R_rol"></p>
+                    </div>
+
+                    <label class="col-sm-2 derecha"  for="form-control-1">Rut</label>
+
+                    <div class="col-sm-4">
+                      <p id="R_rut"></p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 derecha"  for="form-control-1">Razon Social</label>
+
+                    <div class="col-sm-4">
+                      <p id="R_nombre_social"></p>
+                    </div>
+
+                    <label class="col-sm-2 derecha"   for="form-control-1">Giro</label>
+
+                    <div class="col-sm-4">
+                      <p id="R_giro"></p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+
+
+                    <label class="col-sm-2 derecha"  for="form-control-1">Dirección</label>
+
+                    <div class="col-sm-10">
+                      <p id="R_direccion"></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-md-pull-6">
+          <div id="demo-map-2"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module Patentes::LocalizarHelper
+end

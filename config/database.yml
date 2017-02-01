@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Patentes_nunoa_test
+  database: Patentes_nunoa_development
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Patentes_nunoa_production
-  username: Patentes_nunoa
-  password: <%= ENV['PATENTES_NUNOA_DATABASE_PASSWORD'] %>
+  database: Patentes_nunoa_development
+#  username: Patentes_nunoa
+#  password: <%= ENV['PATENTES_NUNOA_DATABASE_PASSWORD'] %>

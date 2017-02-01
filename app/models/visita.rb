@@ -1,0 +1,2 @@
+class Visita < ApplicationRecord
+end

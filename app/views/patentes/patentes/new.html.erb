@@ -1,0 +1,30 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <h1 class="title-bar-title">
+        <span class="d-ib">Agregar local a una patente tipo <%= @patente %></span>
+
+      </h1>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="demo-form-wrapper">
+
+            <%= form_for :local ,:html => {:class => "form form-horizontal" } do |f| %>
+
+              <%= react_component 'error','errores':[] %>
+
+
+
+
+
+                <%end %>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

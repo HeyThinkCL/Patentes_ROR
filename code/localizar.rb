@@ -33,8 +33,12 @@ end
 
 
 gmaps = GoogleMapsService::Client.new(key: 'AIzaSyC4ov_3nLteN23j0ksd7ZzP1hb8W6Q0nmA')
+#gmaps = GoogleMapsService::Client.new(key: 'AIzaSyBJuv-jjU4NIZOJZUcCghmvJTJe6WzJ49w')
 GEO_FACTORY = RGeo::Geographic.spherical_factory(srid: 4326)
 
+
+locales = Local.joins([",comunas"]).where("ST_Within(ST_GeomFromText(st_astext(locales.ubicacion), 4326),ST_GeomFromText(st_astext(ST_Buffer(comunas.area,10)) , 4326) ) ='f' or (locales.ubicacion is NULL  and error ='t')").all()
+#locales =Local.where(:ubicacion => nil,:error => false).all()
 
 locales =Local.where(:ubicacion => nil,:error => false).all()
 
@@ -47,6 +51,8 @@ locales.each{|local|
   direccion=  fin(direccion)<< ", Ñuñoa"
   p direccion
   results = gmaps.geocode(direccion)
+  p results
+  exit()
 
   begin
 
