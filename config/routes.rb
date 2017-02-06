@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :login
   namespace :api do
     resources :ruts
     resources :localizar

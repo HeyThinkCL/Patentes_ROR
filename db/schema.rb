@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 20170126174416) do
 
   create_table "comunas", force: :cascade do |t|
     t.string    "nombre"
+    t.string    "borde"
+    t.string    "fondo"
+    t.integer    "zoom"
+    t.date      "expiracion"
     t.geography "area",       limit: {:srid=>4326, :type=>"polygon", :geographic=>true}
     t.geography "ubicacion",  limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime  "created_at",                                                            null: false

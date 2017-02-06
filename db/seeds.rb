@@ -50,13 +50,46 @@ Representante.all().each{ |representante|
   }
 }
 
+
+GEO_FACTORY = RGeo::Geographic.spherical_factory(srid: 4326)
+
+
 comunas  = con.exec "select * from comunas;"
 comunas.each { |comuna|
 
   comuna_new = Comuna.new()
-  comuna_new.nombre =comuna['nombre']
+  comuna_new.nombre ="Municipalidad de Ñuñoa"
   comuna_new.area =comuna['area']
-  comuna_new.ubicacion =comuna['ubicacion']
+  comuna_new.ubicacion = GEO_FACTORY.point(-70.5959592,-33.4558882)
+  comuna_new.expiracion=Date.today()+170
+  comuna_new.borde='#3fb7ff'
+  comuna_new.fondo='#61aeff'
+  comuna_new.zoom = 13
   comuna_new.save()
 
 }
+
+
+
+
+user1=Usuario.new
+user1.nombre="Marcelo"
+user1.apellido="Pizarro"
+user1.passwd="demodemo"
+user1.email="marcelo.pizarro01@gmail.com"
+user1.save
+
+user1=Usuario.new
+user1.nombre="Manuel"
+user1.apellido="Alba"
+user1.email="m.alba@heythink.cl"
+user1.passwd="mmae2010"
+user1.save
+
+user1=Usuario.new
+user1.nombre="Fabian"
+user1.apellido="Plaza"
+user1.email="f.plaza@heythink.cl"
+user1.passwd="sanantonio"
+user1.save
+

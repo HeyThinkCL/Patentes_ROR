@@ -56,7 +56,7 @@
         <span class="sr-only">Toggle navigation</span>
         <span class="arrow-up"></span>
         <span class="ellipsis ellipsis-vertical">
-              <img class="ellipsis-object" width="32" height="32" src="/img/0180441436.jpg" alt="Marcelo Pizzaro">
+              <img class="ellipsis-object" width="32" height="32" src="/img/0180441436.jpg" alt="<%= @usuario.nombre%> <%= @usuario.apellido %>">
             </span>
       </button>
     </div>
@@ -75,7 +75,7 @@
         </button>
         <ul class="nav navbar-nav navbar-right">
           <li class="visible-xs-block">
-            <h4 class="navbar-text text-center">Hi, Marcelo Pizzaro</h4>
+            <h4 class="navbar-text text-center">Hi, <%= @usuario.nombre%> <%= @usuario.apellido %></h4>
           </li>
           <li class="hidden-xs hidden-sm">
             <form class="navbar-search navbar-search-collapsed">
@@ -117,15 +117,15 @@
           </li>
           <li class="dropdown hidden-xs">
             <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-              <!--<img class="rounded" width="36" height="36" src="/img/0180441436.jpg" alt="Marcelo Pizzaro">--> Marcelo Pizzaro
+              <!--<img class="rounded" width="36" height="36" src="/img/0180441436.jpg" alt="<%= @usuario.nombre%> <%= @usuario.apellido %>">--> <%= @usuario.nombre%> <%= @usuario.apellido %>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
-                <a href="upgrade.html">
+                <a href="/upgrade">
                   <h5 class="navbar-upgrade-heading">
                     Activalo por más tiempo
-                    <small class="navbar-upgrade-notification">Producto disponible por <%= 30*6 %> días más</small>
+                    <small class="navbar-upgrade-notification">Producto disponible por <%= (@comuna.expiracion-Date.today()).to_i %> días más</small>
                   </h5>
                 </a>
               </li>
@@ -181,7 +181,7 @@
             <li class="sidenav-item">
               <a href="/" aria-haspopup="true">
                 <span class="sidenav-icon icon icon-home"></span>
-                <span class="sidenav-label">Dashboards</span>
+                <span class="sidenav-label">Consola</span>
               </a>
 
             </li>
@@ -237,6 +237,29 @@
 
 
             <li class="sidenav-heading">Patentes</li>
+
+
+            <li class="sidenav-item" data-no-turbolink>
+              <a href="/patentes/error" >
+                <span class="sidenav-icon icon icon-cloud-upload"></span>
+                <span class="sidenav-label">Agregar</span>
+              </a>
+            </li>
+            <li class="sidenav-item" data-no-turbolink>
+              <a href="/patentes/error" >
+                <span class="sidenav-icon icon icon-cloud-upload"></span>
+                <span class="sidenav-label">Buscar</span>
+              </a>
+            </li>
+            <li class="sidenav-item" data-no-turbolink>
+              <a href="/patentes/error" >
+                <span class="sidenav-icon icon icon-cloud-upload"></span>
+                <span class="sidenav-label">Borrar</span>
+              </a>
+            </li>
+
+
+
             <li class="sidenav-item has-subnav">
               <a href="#" aria-haspopup="true">
                 <span class="sidenav-icon icon icon-briefcase"></span>
@@ -255,6 +278,24 @@
 
             <li class="sidenav-heading">Locales</li>
 
+            <li class="sidenav-item" data-no-turbolink>
+              <a href="/patentes/error" >
+                <span class="sidenav-icon icon icon-cloud-upload"></span>
+                <span class="sidenav-label">Agregar</span>
+              </a>
+            </li>
+            <li class="sidenav-item" data-no-turbolink>
+              <a href="/patentes/error" >
+                <span class="sidenav-icon icon icon-cloud-upload"></span>
+                <span class="sidenav-label">Buscar</span>
+              </a>
+            </li>
+            <li class="sidenav-item" data-no-turbolink>
+              <a href="/patentes/error" >
+                <span class="sidenav-icon icon icon-cloud-upload"></span>
+                <span class="sidenav-label">Borrar</span>
+              </a>
+            </li>
 
             <% Patente.select(:nombre).group(:nombre).order(:nombre).all().each do |patente| %>
             <li class="sidenav-item has-subnav  <%= active(url_for(controller: 'patentes/patentes',patente:patente.nombre) )  %> <%= open(url_for(controller: 'patentes/patentes',patente:patente.nombre ) )  %> <%= active(url_for(controller: 'patentes/localizar',patente:patente.nombre) )  %> <%= open(url_for(controller: 'patentes/localizar',patente:patente.nombre ) )  %>">
