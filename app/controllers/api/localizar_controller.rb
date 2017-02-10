@@ -29,7 +29,7 @@ class Api::LocalizarController < ApplicationController
     end
     p sql
 
-    sql = "SELECT rol,nombre_social,direccion,giro,rut,st_astext(ubicacion) as ubicacion,dv  FROM locales,representantes where representantes_id=representantes.id and "<<sql
+    sql = "SELECT locales.id,rol,nombre_social,direccion,giro,rut,st_astext(ubicacion) as ubicacion,dv,pago,deuda  FROM locales,representantes where representantes_id=representantes.id and "<<sql
     render json:ActiveRecord::Base.connection.execute(sql)
     # render json:Local.joins(",representantes").where(sql).all(), include:[:representante]
   end

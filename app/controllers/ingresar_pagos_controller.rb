@@ -1,0 +1,2 @@
+class IngresarPagosController < ApplicationController
+end

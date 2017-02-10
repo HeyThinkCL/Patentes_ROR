@@ -179,17 +179,23 @@
             </li>
             <li class="sidenav-heading">Inicio</li>
             <li class="sidenav-item">
-              <a href="/" aria-haspopup="true">
+              <a href="/" aria-haspopup="true" data-no-turbolink>
                 <span class="sidenav-icon icon icon-home"></span>
                 <span class="sidenav-label">Consola</span>
               </a>
 
             </li>
             <li class="sidenav-item">
-              <a href="#">
+              <a href="/rutas">
 
                 <span class="sidenav-icon icon icon-th"></span>
                 <span class="sidenav-label">Rutas</span>
+              </a>
+            </li>
+            <li class="sidenav-item">
+              <a href="/visitas">
+                <span class="sidenav-icon icon icon-columns"></span>
+                <span class="sidenav-label">Visitas</span>
               </a>
             </li>
             <li class="sidenav-item">
@@ -200,7 +206,7 @@
             </li>
 
             <li class="sidenav-item">
-              <a href="#" aria-haspopup="true">
+              <a href="/ingresar_pagos" aria-haspopup="true">
                 <span class="sidenav-icon icon icon-briefcase"></span>
                 <span class="sidenav-label">Ingresar pago </span>
               </a>
@@ -218,23 +224,20 @@
 
             <li class="sidenav-heading">Localizador </li>
             <li class="sidenav-item">
-              <a href="<%= url_for(controller:'patentes/localizar',action: 'index') %>" aria-haspopup="true" data-turbolinks-track="false">
+              <a href="<%= url_for(controller:'patentes/localizar',action: 'index') %>" aria-haspopup="true" data-no-turbolink>
                 <span class="sidenav-icon icon icon-briefcase"></span>
-                <span class="sidenav-label">Buscador de puntos</span>
+                <span class="sidenav-label">Buscador de locales</span>
               </a>
 
             </li>
 
             <li class="sidenav-item">
-              <a href="#" aria-haspopup="true">
+              <a href="<%= url_for(controller:'patentes/localizar',action: 'index') %>" aria-haspopup="true" data-no-turbolink>
                 <span class="sidenav-icon icon icon-briefcase"></span>
-                <span class="sidenav-label">Buscador de areas</span>
+                <span class="sidenav-label">Densidad</span>
               </a>
 
             </li>
-
-
-
 
             <li class="sidenav-heading">Patentes</li>
 
@@ -246,7 +249,7 @@
               </a>
             </li>
             <li class="sidenav-item" data-no-turbolink>
-              <a href="/patentes/error" >
+              <a href="<%= url_for(controller:'patentes/patentes',action: 'index') %>" >
                 <span class="sidenav-icon icon icon-cloud-upload"></span>
                 <span class="sidenav-label">Buscar</span>
               </a>
@@ -259,20 +262,6 @@
             </li>
 
 
-
-            <li class="sidenav-item has-subnav">
-              <a href="#" aria-haspopup="true">
-                <span class="sidenav-icon icon icon-briefcase"></span>
-                <span class="sidenav-label">Tipos</span>
-              </a>
-              <ul class="sidenav-subnav collapse">
-                <li class="sidenav-subheading">Tipos de patente</li>
-                <li><a href="arrows.html">Agregar</a></li>
-                <li><a href="arrows.html">Editar</a></li>
-                <li><a href="badges.html">Eliminar</a></li>
-
-              </ul>
-            </li>
 
 
 
@@ -284,12 +273,7 @@
                 <span class="sidenav-label">Agregar</span>
               </a>
             </li>
-            <li class="sidenav-item" data-no-turbolink>
-              <a href="/patentes/error" >
-                <span class="sidenav-icon icon icon-cloud-upload"></span>
-                <span class="sidenav-label">Buscar</span>
-              </a>
-            </li>
+
             <li class="sidenav-item" data-no-turbolink>
               <a href="/patentes/error" >
                 <span class="sidenav-icon icon icon-cloud-upload"></span>
@@ -297,20 +281,7 @@
               </a>
             </li>
 
-            <% Patente.select(:nombre).group(:nombre).order(:nombre).all().each do |patente| %>
-            <li class="sidenav-item has-subnav  <%= active(url_for(controller: 'patentes/patentes',patente:patente.nombre) )  %> <%= open(url_for(controller: 'patentes/patentes',patente:patente.nombre ) )  %> <%= active(url_for(controller: 'patentes/localizar',patente:patente.nombre) )  %> <%= open(url_for(controller: 'patentes/localizar',patente:patente.nombre ) )  %>">
-              <a href="#" aria-haspopup="true">
-                <span class="sidenav-icon icon icon-shopping-cart"></span>
-                <span class="sidenav-label"><%= patente.nombre %></span>
-              </a>
-              <ul class="sidenav-subnav collapse">
-                <li class="sidenav-subheading"></li>
-                <li class="<%= active(url_for(controller: 'patentes/patentes',patente:patente.nombre),level=5 )  %>"><a href="<%= url_for(controller:'patentes/patentes',action: 'new',patente:patente.nombre) %>">Agregar</a></li>
-                <li class="<%= active(url_for(controller: 'patentes/patentes',patente:patente.nombre),level=4 )  %>"><a href="<%= url_for(controller:'patentes/patentes',action: 'index',patente:patente.nombre) %>">Buscar</a></li>
-              </ul>
-            </li>
 
-                <% end %>
 
             <li class="sidenav-item" data-no-turbolink>
               <a href="/patentes/error" >

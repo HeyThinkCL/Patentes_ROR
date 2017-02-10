@@ -48,15 +48,15 @@ var error = React.createClass({
 
                     <div className="col-sm-2">{local.representante.nombre_social}</div>
                     <div className="col-sm-2" >
-                        <input className="form-control" value={local.direccion} updateValue={local.direccion}     type="text" name="local[giro]" id="local_giro" />
+                        <input className="form-control" defaultValue={local.direccion}    type="text" name="local[giro]" id="local_giro" />
                     </div>
                         <div className="col-sm-2">
-                            <input className="form-control" value={ubicacion(local.ubicacion)[0]}    type="text" name="local[giro]" id="local_giro" />
+                            <input className="form-control" defaultValue={ubicacion(local.ubicacion)[0]}    type="text" name="local[giro]" id="local_giro" />
 
                         </div>
                     <div className="col-sm-2" >
 
-                            <input className="form-control" value={ubicacion(local.ubicacion)[1]}    type="text" name="local[giro]" id="local_giro" />
+                            <input className="form-control" defaultValue={ubicacion(local.ubicacion)[1]}    type="text" name="local[giro]" id="local_giro" />
 
                         </div>
                     <div  className="col-sm-1">Localizar</div>

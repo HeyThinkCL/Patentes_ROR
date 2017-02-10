@@ -37,10 +37,6 @@ class Consola extends React.Component {
 }
 
     render() {
-
-
-
-
         return <div>
         <div className="layout-content">
             <div className="layout-content-body">
@@ -60,7 +56,7 @@ class Consola extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 col-md-6">
                         <div className="card">
-                            <div  className="card-body">
+                            <div  className="card-body center">
                                 <h4 className="card-title">Sistema de Gestión de Patentes</h4><br /><br />
                                 <img src="http://heythink.cl/img/muni_nunoa.jpg" width="183" height="203" /> <br /><br />
                                 <h3 className="card-title">{this.props.comuna.nombre}</h3>
