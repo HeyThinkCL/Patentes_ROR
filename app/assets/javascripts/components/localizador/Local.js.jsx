@@ -1,12 +1,29 @@
 class Local extends React.Component {
 
 
+
     render() {
 
+        _this=this
+        ir_pago= function () {
 
-        if (this.props.local==undefined)
+            window.location = "/ingresar_pagos?rol="+_this.props.local.rol
+        }
+
+
+
+        if (this.props.habilitado==false)
             return <div></div>
-        else
+        else{
+            pagos = this.props.pagos.map(function (pago) {
+
+                date = new Date(pago.created_at)
+                return <div>
+                    Pago por : {pago.pagado} realizado el {date.getDate()}/{date.getMonth()+1}/{date.getFullYear()} {date.getHours()}:{date.getMinutes()}
+                </div>
+
+            });
+
             return <div>
                 <div className="card">
                     <h3> Resultados </h3>
@@ -18,7 +35,7 @@ class Local extends React.Component {
                 </div>
                 <div className="col-md-6">
                     <h4>Pagos</h4>
-
+                    {pagos}
 
 
                 </div>
@@ -44,7 +61,7 @@ class Local extends React.Component {
 
                             <div className="col-md-4">
                     <div className="form-group">
-                        <button className="btn btn-primary btn-block btn-next" type="button">Registar pago</button>
+                        <button onClick={ir_pago.bind(this)} className="btn btn-primary btn-block btn-next" type="button">Registar pago</button>
                     </div>
 
 
@@ -55,6 +72,7 @@ class Local extends React.Component {
                 </div>
                 </div>
           ;
+        }
 
     }
 }

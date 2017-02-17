@@ -8,20 +8,24 @@ class Localizar extends React.Component {
             mapas: [],
             change: false,
             seleccionado: undefined,
+            seleccionado2:false,
             detalle: undefined,
-            map:map
+            map:map,
+            visitas:[],
+            pagos:[]
         }
 
+        _this=this;
 
 
         this.funcionEnPadre = function (x) {
 
-            this.setState({resultados:x,mapas:x,change:!this.state.change,map:map,detalle:undefined,seleccionado:undefined});
+            this.setState({resultados:x,mapas:x,change:!this.state.change,map:map,detalle:undefined,seleccionado:undefined,seleccionado2:false});
 
         }
         this.funcionEnPadre2 = function (x,mapa) {
 
-            this.setState({resultados:x,mapas:x,change:!this.state.change,map:mapa,detalle:undefined,seleccionado:undefined});
+            this.setState({resultados:x,mapas:x,change:!this.state.change,map:mapa,detalle:undefined,seleccionado:undefined,seleccionado2:false});
 
         }
         this.seleccionar_mapa = function (x) {
@@ -38,7 +42,13 @@ class Localizar extends React.Component {
         }
 
         this.detalle = function (x) {
-            this.setState({detalle:'hola'});
+            this.setState({pagos:x.pagos,visitas:x.visitas,seleccionado2:true});
+        }
+        this.nounico = function (x) {
+            console.log(x)
+
+            this.setState({resultados:x,seleccionado:undefined,seleccionado2:false});
+
         }
 
     }
@@ -63,10 +73,12 @@ class Localizar extends React.Component {
 
                     <div className="row">
                         <div className="col-md-6">
-                            <Mapa map={this.state.map} funcion={this.funcionEnPadre2.bind(this)}  resultados={this.state.mapas} change={this.state.change} seleccionar_mapa={this.seleccionar_mapa2.bind(this)}></Mapa>
+                            <Mapa map={this.state.map} nounico={this.nounico.bind(this)}  funcion={this.funcionEnPadre2.bind(this)}  resultados={this.state.mapas} change={this.state.change} seleccionar_mapa={this.seleccionar_mapa2.bind(this)}></Mapa>
                         </div>
                         <div className="col-md-6">
-                            <Buscador funcion={this.funcionEnPadre.bind(this)}></Buscador>
+                            <Buscador funcion={this.funcionEnPadre.bind(this)} patentes={this.props.patentes}></Buscador>
+
+
                             <Resultado funcion={this.funcionEnPadre2.bind(this)} detalle={this.detalle.bind(this)} seleccionado={this.state.seleccionado}></Resultado>
 
                         </div>
@@ -74,13 +86,13 @@ class Localizar extends React.Component {
 
 
 
-                            <Local local={this.state.detalle}></Local>
+                            <Local local={this.state.seleccionado}  habilitado={this.state.seleccionado2}  pagos={this.state.pagos} visitas={this.state.visitas}></Local>
 
 
                     <div className="row">
-                        <div className="col-md-12">
+
                             <Resultados resultados={this.state.resultados} seleccionar_mapa={this.seleccionar_mapa3.bind(this)}></Resultados>
-                        </div>
+
                     </div>
 
 

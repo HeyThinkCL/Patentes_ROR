@@ -78,8 +78,8 @@ class Consola extends React.Component {
                 </div>
 
                 <div className="row">
-                    <Consola_visitas></Consola_visitas>
-                    <Consola_pagos pagos={this.props.pagos} patentes={this.props.patentes}></Consola_pagos>
+       {/*             <Consola_visitas></Consola_visitas>
+                    <Consola_pagos pagos={this.props.pagos} patentes={this.props.patentes}></Consola_pagos>*/}
 
                 </div>
 

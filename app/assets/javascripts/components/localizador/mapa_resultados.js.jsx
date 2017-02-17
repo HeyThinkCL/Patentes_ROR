@@ -6,7 +6,24 @@ class Mapa extends React.Component {
         super(props);
         change = true;
         mapax = function (ixx) {
-            props.seleccionar_mapa(resultados[ixx])
+
+
+
+            if (ixx!=0 && resultados[ixx-1].ubicacion == resultados[ixx].ubicacion){
+
+
+                resultados_posicion=[resultados[ixx]]
+                for(jxx=ixx-1 ; resultados[jxx-1].ubicacion== resultados[ixx].ubicacion;jxx--){
+                    resultados_posicion.push(resultados[jxx])
+
+                }
+
+                    props.nounico(resultados_posicion)
+            }
+            else {
+
+                props.seleccionar_mapa(resultados[ixx])
+            }
         }
 
         cerca = function (lat,lng) {
@@ -73,13 +90,23 @@ class Mapa extends React.Component {
             for (var ixx =0 ; ixx < datos.length ; ixx++){
 
                 dato = datos[ixx]
+                if (ixx > 0 && datos[ixx].ubicacion ==  datos[ixx-1].ubicacion){
+                    icon = "/img/markers/manhole-jb4c.png"
+
+
+                }
+                else{
+                    icon ="/img/markers/townhouse.png"
+                }
 
                 var l = dato.ubicacion.replace("POINT(","").replace(")","").split(" ")
+
                 markersMap.addMarker({
                     title: dato.nombre_social,
                     content: ixx,
                     lat: l[1],
                     lng: l[0],
+                    icon: icon,
                     click: function click(evt) {
                         mapax(evt.content);
                         //toastr.info(evt.content, evt.title);

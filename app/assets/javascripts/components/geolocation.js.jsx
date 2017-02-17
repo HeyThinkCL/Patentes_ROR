@@ -63,6 +63,8 @@ class Geolocation  extends React.Component {
 
 
 
+
+
             })
         }
         this.buscar_rut = function () {
@@ -83,6 +85,7 @@ class Geolocation  extends React.Component {
                 callback: function(results, status) {
                     if (status == 'OK') {
                         results_map = results;
+                        map.removeMarkers();
                         for (var ixj =0 ; ixj < results.length; ixj++) {
                             var latlng = results[ixj].geometry.location
                             map.addMarker({

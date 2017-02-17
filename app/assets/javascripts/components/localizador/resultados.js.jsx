@@ -1,14 +1,41 @@
 class Resultados extends React.Component {
 
-
+    static first;
 
     constructor(props) {
         super(props);
+        first=false;
 
         mapa = function (local) {
 
             props.seleccionar_mapa(local)
         }
+
+        this.render_table = function () {
+
+            var $datatablesColreorder = $('#demo-datatables-colreorder-xx');
+            $datatablesColreorder.DataTable({
+                colReorder: true,
+                responsive: true,
+                destroy: true,
+                dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-6'l><'col-sm-6'p>>",
+                language: {
+                    paginate: {
+                        previous: '&laquo;',
+                        next: '&raquo;'
+                    },
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search…"
+                }
+            });
+
+        }
+
+
+    }
+    componentDidMount() {
+
+
 
 
     }
@@ -26,7 +53,7 @@ class Resultados extends React.Component {
 
 
 
-            return <tr onClick={this.click} >
+            return <tr key={this.idx} onClick={this.click} >
 
 
                 <td className="text-left">{local.rol}</td>
@@ -57,44 +84,59 @@ class Resultados extends React.Component {
                 console.log(pagos)
 
 
+            if (!first ) {
+                setTimeout(this.render_table, 100);
+                first=true;
+            }
+            else{
+
+                console.log("new time")
+            }
+
             return <div>
                 <div className="row gutter-xs">
-                    <div className="col-md-12">
-                        <div className="card">
-                            <h3> Resultados </h3>
-                            <div className="card-body">
 
-                                <table className="table table-hover table-bordered table-striped">
+                    <div className="col-xs-12">
+                        <div className="card">
+                            <div className="card-header">
+                                <div className="card-actions">
+                                    <button type="button" className="card-action card-toggler" title="Collapse" />
+                                    <button type="button" className="card-action card-reload" title="Reload" />
+                                    <button type="button" className="card-action card-remove" title="Remove" />
+                                </div>
+                            </div>
+                            <div className="card-body">
+                                <table id="demo-datatables-colreorder-xx" className="table table-hover table-striped table-bordered table-nowrap dataTable" cellSpacing={0} width="100%">
                                     <thead>
                                     <tr>
-                                        <th rowSpan={2} className="text-left">Rol</th>
-                                        <th rowSpan={2} className="text-left">Rut</th>
-                                        <th rowSpan={2} className="text-left">Razon social</th>
-                                        <th rowSpan={2} className="text-left">Giro</th>
-                                        <th rowSpan={2} className="text-left">Direccion</th>
-                                        <th colSpan={3} className="text-center">Valor Patente</th>
-                                        <th colSpan={3} className="text-center">Valor Deuda</th>
+                                        <th className="text-left">Rol</th>
+                                        <th className="text-left">Rut</th>
+                                        <th className="text-left">Razon social</th>
+                                        <th className="text-left">Giro</th>
+                                        <th className="text-left">Direccion</th>
+                                        <th className="text-center">Valor Patente</th>
+                                        <th className="text-center">Valor Deuda</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-
-                                    {tabla}
-                                    </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th />
-                                        <th />
-                                        <th />
-                                        <th />
-                                        <th className="text-right" colSpan={3}>Total:</th>
-                                        <th className="text-right">${pagos}</th>
-                                        <th className="text-right">$</th>
+                                        <th className="text-left">Rol</th>
+                                        <th className="text-left">Rut</th>
+                                        <th className="text-left">Razon social</th>
+                                        <th className="text-left">Giro</th>
+                                        <th className="text-left">Direccion</th>
+                                        <th className="text-center">Valor Patente</th>
+                                        <th className="text-center">Valor Deuda</th>
                                     </tr>
                                     </tfoot>
+                                    <tbody>
+                                    {tabla}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>;
         }

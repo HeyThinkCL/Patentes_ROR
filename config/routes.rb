@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :cerca
     resources :error
     resources :roles
+    resources :info
   end
   namespace :patentes do
 

@@ -18,49 +18,54 @@ class Buscador extends React.Component {
         }
         this.avanzado2= function () {
 
-            if (this.state.avanzado )
+            if (this.state.avanzado ) {
+                patentes = this.props.patentes.map(function (patente) {
+
+                    return <option>{patente.nombre} - {patente.tipo}</option>
+
+                })
+
                 return <div>
 
                     <div className="form-group">
-                        <label  className="col-sm-2 control-label" htmlFor="form-control-1">Criterio</label>
+                        <label className="col-sm-2 control-label" htmlFor="form-control-1">Criterio</label>
 
                         <div className="col-sm-4">
 
-                            <select  className="form-control" name="transporte">
+                            <select className="form-control" name="transporte">
                                 <option>Deudores</option>
                                 <option>No deudores</option>
                                 <option>Todos</option>
                             </select>
                         </div>
 
-                        <label  className="col-sm-2 control-label" htmlFor="form-control-1">Patente</label>
+                        <label className="col-sm-2 control-label" htmlFor="form-control-1">Patente</label>
 
                         <div className="col-sm-4">
 
-                            <select  className="form-control" name="transporte">
-                                <option>Todos</option>
-                                <option>No deudores</option>
-                                <option>Todos</option>
+                            <select className="form-control" name="transporte">
+                                {patentes}
                             </select>
                         </div>
                     </div>
 
-            <div className="form-group">
-                    <label  className="col-sm-2 control-label" htmlFor="form-control-1">Desde</label>
+                    <div className="form-group">
+                        <label className="col-sm-2 control-label" htmlFor="form-control-1">Desde</label>
 
-                    <div className="col-sm-4">
-                        <input className="form-control"  type="text" name="local[rol]" id="local_rol"   />
+                        <div className="col-sm-4">
+                            <input className="form-control" type="text" name="local[rol]" id="local_rol"/>
 
-                    </div>
+                        </div>
 
-                    <label  className="col-sm-2 control-label" htmlFor="form-control-1">Hasta</label>
+                        <label className="col-sm-2 control-label" htmlFor="form-control-1">Hasta</label>
 
-                    <div className="col-sm-4">
-                        <input className="form-control"   type="text" name="local[rut]" id="local_rut" />
+                        <div className="col-sm-4">
+                            <input className="form-control" type="text" name="local[rut]" id="local_rut"/>
 
+                        </div>
                     </div>
                 </div>
-                </div>
+            }
         }
         this.handleChange = function (name, e) {
             var change = {};

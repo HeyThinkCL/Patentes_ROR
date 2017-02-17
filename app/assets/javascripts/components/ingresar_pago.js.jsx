@@ -11,12 +11,14 @@ class Ingresarpago  extends React.Component {
         super(props);
         _this=this;
 
-        this.state = {enviado:false,msg:'',monto_pagar:0,id:'',rol: '', rut: '',nombre:'',apellido:'',email:'',celular:'',telefono:'', nombre_social: '', giro: '', direccion: '', pago: false};
+        this.state = {enviado:false,msg:'',pago:'',deuda:'',monto_pagar:0,id:'',rol: this.props.rol, rut: '',nombre:'',apellido:'',email:'',celular:'',telefono:'', nombre_social: '', giro: '', direccion: ''};
         this.handleChange = function (name, e) {
             var change = {};
             change[name] = e.target.value;
             this.setState(change);
         }
+
+
         this.enviar = function () {
 
             $.post("/ingresar_pagos",this.state,function (data) {
@@ -49,6 +51,8 @@ class Ingresarpago  extends React.Component {
 
 
         }
+
+
         this.msg=function () {
             if (this.state.enviado){
                 return <div>
@@ -77,6 +81,11 @@ class Ingresarpago  extends React.Component {
     }
 
 
+    componentDidMount() {
+        if (this.props.rol) {
+            this.buscar_rol();
+        }
+    }
 
     render() {
 
