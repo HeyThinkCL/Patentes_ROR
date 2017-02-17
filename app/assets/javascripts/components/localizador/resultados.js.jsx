@@ -26,7 +26,7 @@ class Resultados extends React.Component {
 
 
 
-            return  <tr onClick={this.click} >
+            return <tr onClick={this.click} >
 
 
                 <td className="text-left">{local.rol}</td>
@@ -63,19 +63,18 @@ class Resultados extends React.Component {
                         <div className="card">
                             <h3> Resultados </h3>
                             <div className="card-body">
+
                                 <table className="table table-hover table-bordered table-striped">
                                     <thead>
                                     <tr>
-
-                                        <th rowspan="2" className="text-left">Rol</th>
-                                        <th rowspan="2" className="text-left">Rut</th>
-                                        <th rowspan="2" className="text-left">Razon social</th>
-                                        <th rowspan="2" className="text-left">Giro</th>
-                                        <th rowspan="2" className="text-left">Direccion</th>
-                                        <th colspan="3" className="text-center">Valor Patente</th>
-                                        <th colspan="3" className="text-center">Valor Deuda</th>
+                                        <th rowSpan={2} className="text-left">Rol</th>
+                                        <th rowSpan={2} className="text-left">Rut</th>
+                                        <th rowSpan={2} className="text-left">Razon social</th>
+                                        <th rowSpan={2} className="text-left">Giro</th>
+                                        <th rowSpan={2} className="text-left">Direccion</th>
+                                        <th colSpan={3} className="text-center">Valor Patente</th>
+                                        <th colSpan={3} className="text-center">Valor Deuda</th>
                                     </tr>
-
                                     </thead>
                                     <tbody>
 
@@ -83,11 +82,11 @@ class Resultados extends React.Component {
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th className="text-right" colspan="3">Total:</th>
+                                        <th />
+                                        <th />
+                                        <th />
+                                        <th />
+                                        <th className="text-right" colSpan={3}>Total:</th>
                                         <th className="text-right">${pagos}</th>
                                         <th className="text-right">$</th>
                                     </tr>

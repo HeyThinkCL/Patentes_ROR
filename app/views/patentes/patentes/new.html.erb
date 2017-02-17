@@ -2,7 +2,7 @@
   <div class="layout-content-body">
     <div class="title-bar">
       <h1 class="title-bar-title">
-        <span class="d-ib">Agregar local a una patente tipo <%= @patente %></span>
+        <span class="d-ib">Agregar local a una patente tipo </span>
 
       </h1>
 
@@ -10,20 +10,52 @@
     <div class="row">
       <div class="col-md-12">
         <div class="demo-form-wrapper">
+          <form class="form form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Rol</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text">
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-1">Giro</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">E-mail</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="email">
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-2">Contraseña</label>
+              <div class="col-sm-4">
+                <input id="form-control-2" class="form-control" type="password" value="test.1234">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Monto</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text">
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-1">Deuda</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text">
+              </div>
+            </div>
 
-            <%= form_for :local ,:html => {:class => "form form-horizontal" } do |f| %>
-
-              <%= react_component 'error','errores':[] %>
 
 
 
 
 
-                <%end %>
+
+            <div class="form-group">
+              <button class="btn btn-primary btn-block btn-next" type="button"  >Crear usuario</button>
+            </div>
 
 
-
+          </form>
         </div>
+
       </div>
     </div>
   </div>

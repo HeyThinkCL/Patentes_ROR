@@ -1,9 +1,8 @@
 class Localizar extends React.Component {
-    static map;
     constructor(props) {
         super(props);
 
-        map = {zoom:13,lat:-33.4558882,lng:-70.5959592}
+        var map = {zoom:13,lat:-33.4558882,lng:-70.5959592}
         this.state = {
             resultados: [],
             mapas: [],

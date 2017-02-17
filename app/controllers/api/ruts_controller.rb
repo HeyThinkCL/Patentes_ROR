@@ -1,7 +1,7 @@
 class Api::RutsController < ApplicationController
   def show
 
-    local = Local.where(:rut=> params[:id]).all()
+    local = Representante.where(:rut=> params[:id].split("-")[0]).first()
     render json:local
   end
 end

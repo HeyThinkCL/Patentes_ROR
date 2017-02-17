@@ -1,0 +1,2 @@
+module Patentes::DensidadesHelper
+end

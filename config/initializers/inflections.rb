@@ -14,6 +14,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'pago', 'pagos'
   inflect.irregular 'metodo_pago', 'metodos_pagos'
   inflect.irregular 'login', 'login'
+  inflect.irregular 'densidad', 'densidades'
+  inflect.irregular 'registrar_visita', 'registrar_visitas'
 
   # inflect.uncountable %w( fish sheep )
 end

@@ -1768,9 +1768,9 @@ var markersMap;
 
   // Google Maps
   // googleMapBasicExample();
-  googleMapWithMarkersExample();
+  // googleMapWithMarkersExample();
   // googleMapWithPolylinesExample();
-   googleMapWithPolygonsExample();
+  // googleMapWithPolygonsExample();
   // googleMapWithDrawRouteExample();
   // googleMapWithDrawRouteStepByStepExample();
   // googleMapWithOpenStreetMapExample();

@@ -199,9 +199,9 @@
               </a>
             </li>
             <li class="sidenav-item">
-              <a href="#">
+              <a href="/registrar_visitas">
                 <span class="sidenav-icon icon icon-columns"></span>
-                <span class="sidenav-label">Deudores</span>
+                <span class="sidenav-label">Registrar visita</span>
               </a>
             </li>
 
@@ -215,31 +215,31 @@
 
 
             <li class="sidenav-item">
-              <a href="#">
+              <a href="/usuarios">
                 <span class="sidenav-icon icon icon-columns"></span>
                 <span class="sidenav-label">Usuarios</span>
               </a>
             </li>
 
 
-            <li class="sidenav-heading">Localizador </li>
+            <li class="sidenav-heading">Mapas </li>
             <li class="sidenav-item">
               <a href="<%= url_for(controller:'patentes/localizar',action: 'index') %>" aria-haspopup="true" data-no-turbolink>
                 <span class="sidenav-icon icon icon-briefcase"></span>
-                <span class="sidenav-label">Buscador de locales</span>
+                <span class="sidenav-label">Localizador</span>
               </a>
 
             </li>
 
             <li class="sidenav-item">
-              <a href="<%= url_for(controller:'patentes/localizar',action: 'index') %>" aria-haspopup="true" data-no-turbolink>
+              <a href="<%= url_for(controller:'patentes/densidades',action: 'index') %>" aria-haspopup="true" data-no-turbolink>
                 <span class="sidenav-icon icon icon-briefcase"></span>
                 <span class="sidenav-label">Densidad</span>
               </a>
 
             </li>
 
-            <li class="sidenav-heading">Patentes</li>
+<!--            <li class="sidenav-heading">Patentes</li>
 
 
             <li class="sidenav-item" data-no-turbolink>
@@ -251,15 +251,10 @@
             <li class="sidenav-item" data-no-turbolink>
               <a href="<%= url_for(controller:'patentes/patentes',action: 'index') %>" >
                 <span class="sidenav-icon icon icon-cloud-upload"></span>
-                <span class="sidenav-label">Buscar</span>
+                <span class="sidenav-label">Editar</span>
               </a>
-            </li>
-            <li class="sidenav-item" data-no-turbolink>
-              <a href="/patentes/error" >
-                <span class="sidenav-icon icon icon-cloud-upload"></span>
-                <span class="sidenav-label">Borrar</span>
-              </a>
-            </li>
+            </li>-->
+
 
 
 
@@ -268,7 +263,7 @@
             <li class="sidenav-heading">Locales</li>
 
             <li class="sidenav-item" data-no-turbolink>
-              <a href="/patentes/error" >
+              <a href="/locales/new" >
                 <span class="sidenav-icon icon icon-cloud-upload"></span>
                 <span class="sidenav-label">Agregar</span>
               </a>
@@ -302,18 +297,21 @@
   <div class="layout-footer">
     <div class="layout-footer-body">
       <small class="version">Version 0.8</small>
-      <small class="copyright">2017 &copy; Powered By <a href="http://naksoid.com/">HeyThink</a></small>
+      <small class="copyright">2017 &copy; Powered By <a href="http://heythink.cl/">HeyThink</a></small>
     </div>
   </div>
 </div>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUs6mymqBDxxTi7xfhOy13b3oIGsQhIqQ"></script>
 
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUs6mymqBDxxTi7xfhOy13b3oIGsQhIqQ&libraries=visualization"></script>
+
+<%= javascript_include_tag 'application' %>
 
 
 

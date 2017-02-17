@@ -39,64 +39,50 @@ class Resultado extends React.Component {
                 <h3>Resultado</h3>
                 <div className="form form-horizontal">
                     <div className="form-group">
-                        <label className="col-sm-2 derecha" htmlFor="form-control-1">Rol</label>
+                        <label className="col-sm-2 derecha" htmlfor="form-control-1">Rol</label>
                         <div className="col-sm-4">
                             {this.props.seleccionado.rol}
                         </div>
-                        <label className="col-sm-2 derecha" htmlFor="form-control-1">Rut</label>
+                        <label className="col-sm-2 derecha" htmlfor="form-control-1">Rut</label>
                         <div className="col-sm-4">
-                            {this.props.seleccionado.rol}-{this.props.seleccionado.dv}
+                            {this.props.seleccionado.rut}-{this.props.seleccionado.dv}
                         </div>
                     </div>
                     <div className="form-group">
-                        <label className="col-sm-2 derecha" htmlFor="form-control-1">Razon Social</label>
-
+                        <label className="col-sm-2 derecha" htmlfor="form-control-1">Razon Social</label>
                         <div className="col-sm-4">
                             {this.props.seleccionado.nombre_social}
-
                         </div>
-
-                        <label className="col-sm-2 derecha" htmlFor="form-control-1">Giro</label>
-
+                        <label className="col-sm-2 derecha" htmlfor="form-control-1">Giro</label>
                         <div className="col-sm-4">
                             {this.props.seleccionado.giro}
-
                         </div>
                     </div>
                     <div className="form-group">
-                        <label className="col-sm-2 derecha" htmlFor="form-control-1">Dirección</label>
+                        <label className="col-sm-2 derecha" htmlfor="form-control-1">Dirección</label>
                         <div className="col-sm-10">
                             {this.props.seleccionado.direccion}
                         </div>
                     </div>
                     <div className="form-group">
-                        <label className="col-sm-2 derecha" htmlFor="form-control-1">Monto</label>
-
+                        <label className="col-sm-2 derecha" htmlfor="form-control-1">Monto</label>
                         <div className="col-sm-4">
                             {this.props.seleccionado.pago}
-
                         </div>
-
-                        <label className="col-sm-2 derecha" htmlFor="form-control-1">Deuda</label>
-
+                        <label className="col-sm-2 derecha" htmlfor="form-control-1">Deuda</label>
                         <div className="col-sm-4">
                             {this.props.seleccionado.deuda}
-
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="col-sm-6">
-                        <button className="btn btn-primary btn-block btn-next" onClick={this.detalle.bind(this)}  type="button">Mostrar Detalles</button>
+                            <button className="btn btn-primary btn-block btn-next" onclick={this.detalle.bind(this)} type="button">Mostrar Detalles</button>
                         </div>
-
-
                         <div className="col-sm-6">
-                            <button className="btn btn-success btn-block btn-next" onClick={this.cerca}  type="button">Patentes cercanas</button>
+                            <button className="btn btn-success btn-block btn-next" onclick={this.cerca} type="button">Patentes cercanas</button>
                         </div>
-
                     </div>
                     <div className="form-group">
-
                     </div>
                 </div>
 

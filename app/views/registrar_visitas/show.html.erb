@@ -1,0 +1,105 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <h1 class="title-bar-title">
+              <span class="d-ib">Registrar visita
+                <small><%= @local.representante.nombre_social %> </small>
+              </span>
+        <span class="d-ib">
+                <a class="title-bar-shortcut" href="#" title="Add to shortcut list" data-container="body" data-toggle-text="Remove from shortcut list" data-trigger="hover" data-placement="right" data-toggle="tooltip">
+                  <span class="sr-only">Add to shortcut list</span>
+                </a>
+              </span>
+      </h1>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="demo-form-wrapper">
+          <form class="form form-horizontal" action="/registrar_visitas" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Rol</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text"  value="<%= @local.rol%>" disabled>
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-1">Rut</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text"  value="<%= @local.representante.rut%>-<%= @local.representante.dv%>" disabled>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Giro</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text"  value="<%= @local.giro%>" disabled>
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-1">Patente</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" type="text"  value="<%= @local.patente.nombre%> <%= @local.patente.tipo%>" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Direccion</label>
+              <div class="col-sm-9">
+                <input id="form-control-1" class="form-control" type="text"  value="<%= @local.direccion%>" disabled>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Nombre</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" name="nombre" value="<%= @local.representante.nombre%>"  type="text"  >
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-1">Apellido</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" name="apellido" value="<%= @local.representante.apellido%>" type="text"  >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Telefono</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" name="telefono" value="<%= @local.representante.telefono%>" type="text"  >
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-1">Celular</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" name="celular" value="<%= @local.representante.celular%>" type="text"  >
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="form-control-1">Email</label>
+              <div class="col-sm-4">
+                <input id="form-control-1" class="form-control" name="email" value="<%= @local.representante.email%>" type="email"  >
+              </div>
+              <label class="col-sm-1 control-label" for="form-control-1">Fecha Compromiso</label>
+              <div class="col-sm-4">
+                <div class="input-with-icon">
+                  <input class="form-control" type="text" data-provide="datepicker"  name=fecha  data-date-today-highlight="true">
+                  <span class="icon icon-calendar input-icon"></span>
+                </div>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <input name="id" value="<%= @local.id%>" type="hidden">
+              <button type="submit" value="Submit" class="btn btn-primary btn-block btn-next"  >Actualizar</button>
+            </div>
+
+
+
+
+
+          </form>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

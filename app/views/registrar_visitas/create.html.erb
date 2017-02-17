@@ -1,0 +1,36 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <h1 class="title-bar-title">
+              <span class="d-ib">Visita registrada
+                <small><%= @local.representante.nombre_social %> </small>
+              </span>
+
+      </h1>
+
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="panel panel-body text-center" data-toggle="match-height" >
+          <h4 class="text-muted">
+            Se ha registrado la visita con el id :
+            <a class="label label-success" target="_blank">
+              <span><%= @visita.id%></span>
+            </a>
+          </h4>
+        </div>
+      </div>
+    </div>
+
+
+<script>
+
+  setTimeout('window.location.href="/registrar_visitas"', 300);
+
+</script>
+
+  </div>
+</div>

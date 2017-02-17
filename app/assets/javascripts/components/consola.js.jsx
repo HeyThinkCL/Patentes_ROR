@@ -14,7 +14,7 @@ class Consola extends React.Component {
             if ($polygonsMap.length) {
                 var polygonsMap = new GMaps({
                     div: $polygonsMap[0],
-                    height: '400px',
+                    height: '320px',
                     lat: -33.4558882,
                     lng: -70.5959592,
                     zoom: zoom
@@ -74,6 +74,12 @@ class Consola extends React.Component {
 
                         </div>
                     </div>
+
+                </div>
+
+                <div className="row">
+                    <Consola_visitas></Consola_visitas>
+                    <Consola_pagos pagos={this.props.pagos} patentes={this.props.patentes}></Consola_pagos>
 
                 </div>
 

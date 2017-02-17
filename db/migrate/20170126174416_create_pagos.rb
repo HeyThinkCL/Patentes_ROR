@@ -3,7 +3,7 @@ class CreatePagos < ActiveRecord::Migration[5.0]
     create_table :pagos do |t|
 
       t.belongs_to :usuarios, foreign_key: true
-      t.belongs_to :local, foreign_key: true
+      t.belongs_to :locales, foreign_key: true
       t.belongs_to :metodos_pagos, foreign_key: true
       t.integer :pagado
 

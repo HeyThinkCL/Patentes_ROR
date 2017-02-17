@@ -10,7 +10,6 @@ class Patentes::PatentesController < ApplicationController
     render component:'Buscar_Patente'
   end
   def new
-    @patente = params[:patente].downcase()
 
   end
 end
