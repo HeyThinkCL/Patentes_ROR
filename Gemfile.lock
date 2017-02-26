@@ -132,6 +132,15 @@ GEM
     rgeo-activerecord (5.0.1)
       activerecord (~> 5.0.0)
       rgeo (~> 0.3)
+    roo (2.7.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
+    roo-xls (1.0.0)
+      nokogiri
+      roo (>= 2.0.0beta1, < 3)
+      spreadsheet (> 0.9.0)
+    ruby-ole (1.2.12)
+    rubyzip (1.2.1)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -142,6 +151,11 @@ GEM
     sii_chile (0.1.4)
       faraday
       nokogiri
+    simple-spreadsheet (0.5.0)
+      roo (~> 2.4)
+      roo-xls (~> 1.0)
+    spreadsheet (1.1.4)
+      ruby-ole (>= 1.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -190,6 +204,7 @@ DEPENDENCIES
   react-rails
   sass-rails (~> 5.0)
   sii_chile
+  simple-spreadsheet
   spring
   spring-watcher-listen (~> 2.0.0)
   turbo_react-rails

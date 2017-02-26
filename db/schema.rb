@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20170126174416) do
     t.datetime  "updated_at",                                                            null: false
   end
 
+  create_table "juntas_vecinos", force: :cascade do |t|
+    t.integer   "numero"
+    t.string    "nombre"
+    t.geography "area",       limit: {:srid=>4326, :type=>"polygon", :geographic=>true}
+    t.integer   "comunas_id"
+    t.datetime  "created_at",                                                            null: false
+    t.datetime  "updated_at",                                                            null: false
+    t.index ["comunas_id"], name: "index_juntas_vecinos_on_comunas_id", using: :btree
+  end
+
   create_table "locales", force: :cascade do |t|
     t.integer   "rol"
     t.integer   "pago"
@@ -38,6 +48,15 @@ ActiveRecord::Schema.define(version: 20170126174416) do
     t.integer   "mes_2"
     t.string    "direccion"
     t.string    "giro"
+    t.date      "fecha_otorgada"
+    t.integer   "codigo_sii"
+    t.integer   "rol_propiedad"
+    t.integer   "numero"
+    t.string    "calle"
+    t.string    "casa"
+    t.string    "departamento"
+    t.string    "oficina"
+    t.string    "local"
     t.boolean   "minimo",                                                                     default: false
     t.boolean   "deudor",                                                                     default: false
     t.boolean   "error",                                                                      default: false
@@ -45,8 +64,12 @@ ActiveRecord::Schema.define(version: 20170126174416) do
     t.integer   "patentes_id"
     t.integer   "representantes_id"
     t.integer   "usuarios_id"
+    t.integer   "juntas_vecinos_id"
+    t.integer   "comunas_id"
     t.datetime  "created_at",                                                                                 null: false
     t.datetime  "updated_at",                                                                                 null: false
+    t.index ["comunas_id"], name: "index_locales_on_comunas_id", using: :btree
+    t.index ["juntas_vecinos_id"], name: "index_locales_on_juntas_vecinos_id", using: :btree
     t.index ["patentes_id"], name: "index_locales_on_patentes_id", using: :btree
     t.index ["representantes_id"], name: "index_locales_on_representantes_id", using: :btree
     t.index ["usuarios_id"], name: "index_locales_on_usuarios_id", using: :btree
@@ -126,6 +149,9 @@ ActiveRecord::Schema.define(version: 20170126174416) do
     t.index ["usuarios_id"], name: "index_visitas_on_usuarios_id", using: :btree
   end
 
+  add_foreign_key "juntas_vecinos", "comunas", column: "comunas_id"
+  add_foreign_key "locales", "comunas", column: "comunas_id"
+  add_foreign_key "locales", "juntas_vecinos", column: "juntas_vecinos_id"
   add_foreign_key "locales", "patentes", column: "patentes_id"
   add_foreign_key "locales", "representantes", column: "representantes_id"
   add_foreign_key "locales", "usuarios", column: "usuarios_id"

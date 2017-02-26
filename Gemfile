@@ -56,3 +56,5 @@ gem 'turbo_react-rails'
 
 gem 'sii_chile'
 gem 'material_icons'
+
+gem 'simple-spreadsheet'
