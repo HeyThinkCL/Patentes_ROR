@@ -90,6 +90,7 @@ class LocalesController <  ApplicationController
     local.giro = params[:giro]
     representante.save()
     local.representantes_id=representante.id
+    local.patentes_id = 1
     local.save
 
     render json:{'id':local.id}
