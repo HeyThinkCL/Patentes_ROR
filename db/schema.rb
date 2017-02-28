@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126174416) do
+ActiveRecord::Schema.define(version: 20170228052316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,43 @@ ActiveRecord::Schema.define(version: 20170126174416) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "solicitudes", force: :cascade do |t|
+    t.integer   "rol"
+    t.integer   "pago"
+    t.integer   "deuda"
+    t.integer   "dia_1"
+    t.integer   "dia_2"
+    t.integer   "mes_1"
+    t.integer   "mes_2"
+    t.string    "direccion"
+    t.string    "giro"
+    t.date      "fecha_otorgada"
+    t.integer   "codigo_sii"
+    t.integer   "rol_propiedad"
+    t.integer   "numero"
+    t.string    "calle"
+    t.string    "casa"
+    t.string    "departamento"
+    t.string    "oficina"
+    t.string    "local"
+    t.boolean   "minimo",                                                                     default: false
+    t.boolean   "deudor",                                                                     default: false
+    t.boolean   "error",                                                                      default: false
+    t.geography "ubicacion",         limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.integer   "patentes_id"
+    t.integer   "representantes_id"
+    t.integer   "usuarios_id"
+    t.integer   "juntas_vecinos_id"
+    t.integer   "comunas_id"
+    t.datetime  "created_at",                                                                                 null: false
+    t.datetime  "updated_at",                                                                                 null: false
+    t.index ["comunas_id"], name: "index_solicitudes_on_comunas_id", using: :btree
+    t.index ["juntas_vecinos_id"], name: "index_solicitudes_on_juntas_vecinos_id", using: :btree
+    t.index ["patentes_id"], name: "index_solicitudes_on_patentes_id", using: :btree
+    t.index ["representantes_id"], name: "index_solicitudes_on_representantes_id", using: :btree
+    t.index ["usuarios_id"], name: "index_solicitudes_on_usuarios_id", using: :btree
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string   "nombre"
     t.string   "apellido"
@@ -159,6 +196,11 @@ ActiveRecord::Schema.define(version: 20170126174416) do
   add_foreign_key "pagos", "metodos_pagos", column: "metodos_pagos_id"
   add_foreign_key "pagos", "usuarios", column: "usuarios_id"
   add_foreign_key "representantes", "usuarios", column: "usuarios_id"
+  add_foreign_key "solicitudes", "comunas", column: "comunas_id"
+  add_foreign_key "solicitudes", "juntas_vecinos", column: "juntas_vecinos_id"
+  add_foreign_key "solicitudes", "patentes", column: "patentes_id"
+  add_foreign_key "solicitudes", "representantes", column: "representantes_id"
+  add_foreign_key "solicitudes", "usuarios", column: "usuarios_id"
   add_foreign_key "usuarios", "roles", column: "roles_id"
   add_foreign_key "visitas", "locales", column: "locales_id"
   add_foreign_key "visitas", "roles", column: "roles_id"

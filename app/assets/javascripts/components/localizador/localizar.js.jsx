@@ -76,7 +76,7 @@ class Localizar extends React.Component {
                             <Mapa map={this.state.map} nounico={this.nounico.bind(this)}  funcion={this.funcionEnPadre2.bind(this)}  resultados={this.state.mapas} change={this.state.change} seleccionar_mapa={this.seleccionar_mapa2.bind(this)}></Mapa>
                         </div>
                         <div className="col-md-6">
-                            <Buscador funcion={this.funcionEnPadre.bind(this)} patentes={this.props.patentes}></Buscador>
+                            <Buscador funcion={this.funcionEnPadre.bind(this)} giros={this.props.giros} juntasvecinos={this.props.juntasvecinos} patentes={this.props.patentes}></Buscador>
 
 
                             <Resultado funcion={this.funcionEnPadre2.bind(this)} detalle={this.detalle.bind(this)} seleccionado={this.state.seleccionado}></Resultado>

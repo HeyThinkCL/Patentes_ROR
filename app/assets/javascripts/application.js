@@ -11,9 +11,12 @@
 // about supported directives.
 //
 
+
 //= require react
 //= require components
 //= require react_ujs
 
 //= require_tree .
+//= require select2
+
 var map;

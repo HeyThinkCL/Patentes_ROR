@@ -17,6 +17,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'densidad', 'densidades'
   inflect.irregular 'registrar_visita', 'registrar_visitas'
   inflect.irregular 'junta_vecinos', 'juntas_vecinos'
+  inflect.irregular 'solicitud', 'solicitudes'
 
   # inflect.uncountable %w( fish sheep )
 end

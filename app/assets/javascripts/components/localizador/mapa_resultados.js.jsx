@@ -59,14 +59,14 @@ class Mapa extends React.Component {
 
             }
 
-            GMaps.on('click', markersMap.map, function(event) {
+   /*         GMaps.on('click', markersMap.map, function(event) {
 
                 var lat = event.latLng.lat();
                 var lng = event.latLng.lng();
 
 
                 cerca(lat,lng);
-            });
+            });*/
 
 
         }

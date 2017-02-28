@@ -58,3 +58,4 @@ gem 'sii_chile'
 gem 'material_icons'
 
 gem 'simple-spreadsheet'
+gem "select2-rails"

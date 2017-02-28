@@ -19,9 +19,9 @@ class Buscador extends React.Component {
         this.avanzado2= function () {
 
             if (this.state.avanzado ) {
-                patentes = this.props.patentes.map(function (patente) {
+                juntas = this.props.juntasvecinos.map(function (junta) {
 
-                    return <option>{patente.nombre} - {patente.tipo}</option>
+                    return <option key={junta.id}>{junta.numero}</option>
 
                 })
 
@@ -39,12 +39,12 @@ class Buscador extends React.Component {
                             </select>
                         </div>
 
-                        <label className="col-sm-2 control-label" htmlFor="form-control-1">Patente</label>
+                        <label className="col-sm-2 control-label" htmlFor="form-control-1">Junta Vecinos</label>
 
                         <div className="col-sm-4">
 
                             <select className="form-control" name="transporte">
-                                {patentes}
+                                {juntas}
                             </select>
                         </div>
                     </div>
@@ -80,9 +80,28 @@ class Buscador extends React.Component {
         }
 
     }
-    render() {
 
 
+
+    componentDidMount() {
+
+        $(".js-example-basic-multiple").select2();
+
+        }
+            render() {
+
+
+                giros = this.props.giros.map(function (giro,jx) {
+
+                    return <option  key={jx} value={giro.giro}>{giro.giro}</option>
+
+                })
+
+                patentes = this.props.patentes.map(function (patente,jx) {
+
+                    return <option key={jx}>{patente.nombre} - {patente.tipo}</option>
+
+                })
 
 
 
@@ -113,11 +132,27 @@ class Buscador extends React.Component {
                         <input className="form-control" defaultValue={this.state.nombre_social}  onChange={this.handleChange.bind(this, 'nombre_social')} type="text" name="local[nombre_social]" id="local_nombre_social" />
 
                     </div>
+                    <label className="col-sm-2 control-label" htmlFor="form-control-1">Patente</label>
+
+                    <div className="col-sm-4">
+
+                        <select className="form-control" name="transporte">
+                            <option >Todos</option>
+                            {patentes}
+                        </select>
+                    </div>
+
+
+                    </div>
+                <div className="form-group">
 
                     <label  className="col-sm-2 control-label" htmlFor="form-control-1">Giro</label>
 
-                    <div className="col-sm-4">
-                        <input className="form-control" defaultValue={this.state.giro} onChange={this.handleChange.bind(this, 'giro')} type="text" name="local[giro]" id="local_giro" />
+                    <div className="col-sm-10">
+
+                        <select className="js-example-basic-multiple" multiple="multiple">
+                            {giros}
+                        </select>
 
                     </div>
                 </div>
