@@ -13,7 +13,7 @@ class Resultados extends React.Component {
 
         this.render_table = function () {
 
-            var $datatablesColreorder = $('#demo-datatables-colreorder-xx');
+            /*var $datatablesColreorder = $('#demo-datatables-colreorder-xx');
             $datatablesColreorder.DataTable({
                 colReorder: true,
                 responsive: true,
@@ -27,7 +27,7 @@ class Resultados extends React.Component {
                     search: "_INPUT_",
                     searchPlaceholder: "Search…"
                 }
-            });
+            });*/
 
         }
 

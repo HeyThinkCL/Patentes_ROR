@@ -13,7 +13,8 @@ class Mapa extends React.Component {
 
 
                 resultados_posicion=[resultados[ixx]]
-                for(jxx=ixx-1 ; resultados[jxx-1].ubicacion== resultados[ixx].ubicacion;jxx--){
+
+                for(jxx=ixx-1 ; jxx >=0 && resultados[jxx].ubicacion== resultados[ixx].ubicacion;jxx--){
                     resultados_posicion.push(resultados[jxx])
 
                 }
