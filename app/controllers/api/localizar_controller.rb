@@ -64,9 +64,7 @@ class Api::LocalizarController < ApplicationController
   rescue
   end
 
-    if sql == "locales.ubicacion is not null and error='f' and locales.representantes_id=representantes.id "
-      return render json:[]
-    end
+
 
     sql = "SELECT locales.id,rol,nombre_social,direccion,giro,rut,st_astext(ubicacion) as ubicacion,dv,pago,deuda  FROM locales,representantes where representantes_id=representantes.id and "<<sql<<" order by locales.ubicacion asc"
     p sql
