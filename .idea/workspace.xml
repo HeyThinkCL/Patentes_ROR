@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="283089e4-6074-424d-b0ee-58722653a3b7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/locales/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/components/localizador/buscador.js.jsx" afterPath="$PROJECT_DIR$/app/assets/javascripts/components/localizador/buscador.js.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/components/localizador/localizar.js.jsx" afterPath="$PROJECT_DIR$/app/assets/javascripts/components/localizador/localizar.js.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/components/localizador/mapa_resultados.js.jsx" afterPath="$PROJECT_DIR$/app/assets/javascripts/components/localizador/mapa_resultados.js.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/localizar_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/localizar_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/locales_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/locales_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/patentes/localizar_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/patentes/localizar_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/representante.rb" afterPath="$PROJECT_DIR$/app/models/representante.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/solicitud.rb" afterPath="$PROJECT_DIR$/app/models/solicitud.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/locales/show.html.erb" afterPath="$PROJECT_DIR$/app/views/locales/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/locales/index.html.erb" afterPath="$PROJECT_DIR$/app/views/locales/index.html.erb" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,6 +40,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/locales/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-300">
+              <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -94,11 +95,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="localizar_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="localizar_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/localizar_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/registrar_visitas/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,16 +120,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-782">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="consola.js.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/components/consola.js.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="17" selection-start-line="25" selection-start-column="16" selection-end-line="39" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -208,7 +209,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20170228052316_create_solicitudes.rb" />
         <option value="$PROJECT_DIR$/app/models/representante.rb" />
         <option value="$PROJECT_DIR$/app/models/solicitud.rb" />
-        <option value="$PROJECT_DIR$/app/views/locales/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/locales_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/locales/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/patentes/localizar_controller.rb" />
@@ -216,6 +216,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/components/localizador/mapa_resultados.js.jsx" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/components/localizador/buscador.js.jsx" />
         <option value="$PROJECT_DIR$/app/controllers/api/localizar_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/locales/index.html.erb" />
       </list>
     </option>
   </component>
@@ -949,12 +950,12 @@
       <workItem from="1487323275624" duration="5000" />
       <workItem from="1487396761335" duration="1268000" />
       <workItem from="1487990824038" duration="13191000" />
-      <workItem from="1488217741960" duration="20533000" />
+      <workItem from="1488217741960" duration="20870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216396000" />
+    <option name="totallyTimeSpent" value="216733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1332,14 +1333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/registrar_visitas/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-971">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/registrar_visitas/create.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1368,14 +1361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="81" column="92" selection-start-line="81" selection-start-column="58" selection-end-line="81" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/locales/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="103" selection-start-line="58" selection-start-column="103" selection-end-line="58" selection-end-column="103" />
           <folding />
         </state>
       </provider>
@@ -1420,14 +1405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/locales/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/components/localizador/resultados.js.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-782">
@@ -1458,6 +1435,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/registrar_visitas/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/locales/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/locales/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
           <folding />
         </state>
       </provider>
