@@ -4,7 +4,7 @@ class Buscador extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {rol:'',rut:'',nombre_social:'',giro:'',direccion:'Irarrazaval 35',avanzado:false};
+        this.state = {rol:'',rut:'',nombre_social:'',giro:'',direccion:'',avanzado:false};
         this.buscar = function () {
             this.setState({});
             data = JSON.parse(JSON.stringify(this.state))
