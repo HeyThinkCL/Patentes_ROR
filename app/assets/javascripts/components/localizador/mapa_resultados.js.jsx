@@ -87,6 +87,36 @@ class Mapa extends React.Component {
 
             var dato;
             var datos = this.props.resultados;
+
+            juntas= $("#onJuntas").val() || []
+            markersMap.removePolygons()
+
+
+            for (junta of juntas){
+
+                id_search = junta.split("-")[0].replace(" ","")
+
+                    for (junta_vecino of this.props.juntasvecinos) {
+
+                        if (junta_vecino.numero == id_search) {
+
+                            var p = []
+                            for (poli of junta_vecino.area.replace("POLYGON ((", "").replace("))", "").split(",")) {
+                                p.push(poli.split(" ").reverse());
+                            }
+                            markersMap.drawPolygon({
+                                fillColor: '#3fb7ff',
+                                fillOpacity: 0.35,
+                                paths: p,
+                                strokeColor: '#3fb7ff',
+                                strokeOpacity: 0.8,
+                                strokeWeight: 2
+                            });
+                        }
+                    }
+            }
+
+
             for (var ixx =0 ; ixx < datos.length ; ixx++){
 
                 dato = datos[ixx]

@@ -50,17 +50,16 @@ class LocalesController <  ApplicationController
 
     render json:get_data(params[:lat],params[:lng],params[:giro],params[:rut].split("-")[0])
 
-
-
-
-
-=begin
-
-=end
   end
 
   def show
-    @props ={'resultados': get_data()}
+    solicitud=Solicitud.find(params[:id])
+    @props ={'resultados': get_data(solicitud.ubicacion.y,solicitud.ubicacion.x,solicitud.giro,solicitud.representante.rut)}
+  end
+
+  def index
+
+
   end
 
 

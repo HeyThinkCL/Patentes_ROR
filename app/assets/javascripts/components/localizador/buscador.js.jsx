@@ -4,10 +4,13 @@ class Buscador extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {rol:'',rut:'',nombre_social:'',giro:'',direccion:'bolivar',avanzado:false};
+        this.state = {rol:'',rut:'',nombre_social:'',giro:'',direccion:'Irarrazaval 35',avanzado:false};
         this.buscar = function () {
             this.setState({});
-            $.post("/api/localizar",this.state,function (data) {
+            data = JSON.parse(JSON.stringify(this.state))
+            data.junta_vecinos = $("#onJuntas").val() || [] ;
+            data.giro = $("#onGiro").val() || [] ;
+            $.post("/api/localizar",data,function (data) {
                props.funcion(data)
             })
         }
@@ -104,6 +107,12 @@ class Buscador extends React.Component {
                 })
 
 
+                juntas = this.props.juntasvecinos.map(function (junta) {
+
+                    return <option key={junta.id}>{junta.numero} - {junta.nombre}</option>
+
+                })
+
 
         return <div>
             <h3>Buscador</h3>
@@ -150,7 +159,7 @@ class Buscador extends React.Component {
 
                     <div className="col-sm-10">
 
-                        <select className="js-example-basic-multiple" multiple="multiple">
+                        <select id ="onGiro" className="form-control js-example-basic-multiple" multiple="multiple">
                             {giros}
                         </select>
 
@@ -170,20 +179,22 @@ class Buscador extends React.Component {
                 <div className="form-group">
 
 
-                    <label  className="col-sm-2 control-label" htmlFor="form-control-1">Avanzado</label>
+                    <label  className="col-sm-2 control-label" htmlFor="form-control-1">Junta de Vecino</label>
 
-                    <div className="col-sm-4">
-                        <input className="form-control"  value={this.state.avanzado}  onChange={this.avanzado_check.bind(this)}  type="checkbox" name="local[direccion]" id="local_direccion" />
+
+                    <div className="col-sm-10">
+
+                        <select id="onJuntas" className="form-control js-example-basic-multiple" multiple="multiple">
+                            {juntas}
+                        </select>
 
                     </div>
-
-                    {this.avanzado1()}
 
 
                 </div>
 
 
-                {this.avanzado2()}
+
 
 
                 <div className="form-group">
