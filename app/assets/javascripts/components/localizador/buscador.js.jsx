@@ -1,7 +1,5 @@
 class Buscador extends React.Component {
 
-
-
     constructor(props) {
         super(props);
         this.state = {rol:'',rut:'',nombre_social:'',giro:'',direccion:'',avanzado:false};

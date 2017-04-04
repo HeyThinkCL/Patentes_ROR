@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-=begin
+#=begin
 require 'pg'
 con = PG.connect :dbname => 'pnunoabk', :user => 'postgres'
 representantes = con.exec "select rut,dv,nombre_social,count(*) as c from locales group by rut,dv,nombre_social order by c desc;"
@@ -50,7 +50,7 @@ Representante.all().each{ |representante|
 
   }
 }
-=end
+#=end
 
 
 GEO_FACTORY = RGeo::Geographic.spherical_factory(srid: 4326)
@@ -93,4 +93,3 @@ user1.apellido="Plaza"
 user1.email="f.plaza@heythink.cl"
 user1.passwd="sanantonio"
 user1.save
-
