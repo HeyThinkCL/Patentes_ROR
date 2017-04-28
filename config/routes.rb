@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :gestiones do
+    resources :gestiones
+  end
+  namespace :gestiones do
+    resources :finanzas
+  end
   resources :login
   resources :ingresar_pagos
   resources :rutas
@@ -15,6 +21,7 @@ Rails.application.routes.draw do
     resources :error
     resources :roles
     resources :info
+    resources :excel
   end
   namespace :patentes do
 

@@ -1,0 +1,2 @@
+module Gestiones::InspectoresHelper
+end

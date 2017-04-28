@@ -22,6 +22,7 @@ class CreateLocales < ActiveRecord::Migration[5.0]
       t.boolean :minimo,default:false
       t.boolean :deudor,default:false
       t.boolean :error,default:false
+      t.datetime :futuro_pago
       t.st_point :ubicacion, geographic: true
       t.belongs_to :patentes, foreign_key: true
       t.belongs_to :representantes, foreign_key: true

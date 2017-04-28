@@ -77,7 +77,7 @@ class Mapa extends React.Component {
 
     render() {
 
-        if(change ==this.props.change &&  this.props.resultados.length){
+        if(change ==this.props.change ){
 
             change=!change;
             markersMap.removeMarkers();
@@ -127,7 +127,17 @@ class Mapa extends React.Component {
 
                 }
                 else{
-                    icon ="/img/markers/townhouse.png"
+                    if ( dato.deuda && dato.deudor ) {
+                        icon = "/img/markers/deudores.png"
+                    }
+                    else if (dato.deuda){
+
+                        icon = "/img/markers/townhouse_comprometidos.png"
+                    }
+                    else {
+                        icon = "/img/markers/townhouse.png"
+                    }
+
                 }
 
                 var l = dato.ubicacion.replace("POINT(","").replace(")","").split(" ")

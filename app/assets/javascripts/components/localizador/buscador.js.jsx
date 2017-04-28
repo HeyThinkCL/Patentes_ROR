@@ -1,15 +1,16 @@
 class Buscador extends React.Component {
 
+    static data;
     constructor(props) {
         super(props);
-        this.state = {rol:'',rut:'',nombre_social:'',giro:'',direccion:'',avanzado:false};
+        this.state = {rol:'',rut:'',nombre_social:'',giro:'',direccion:'',avanzado:false,aldia:true,compromiso:true,deudor:true};
         this.buscar = function () {
             this.setState({});
             data = JSON.parse(JSON.stringify(this.state))
             data.junta_vecinos = $("#onJuntas").val() || [] ;
             data.giro = $("#onGiro").val() || [] ;
-            $.post("/api/localizar",data,function (data) {
-               props.funcion(data)
+            $.post("/api/localizar",data,function (dato) {
+               props.funcion(dato,data)
             })
         }
         this.avanzado1= function () {
@@ -73,6 +74,19 @@ class Buscador extends React.Component {
             change[name] = e.target.value;
             this.setState(change);
         }
+
+        this.handleChange2 =  function (name, e) {
+            console.log(name)
+            const target = e.target;
+            const value = target.type === 'checkbox' ? target.checked : target.value;
+            var change = {};
+            change[name] = value;
+
+
+            this.setState(change);
+        }
+
+
         this.avanzado_check = function () {
             var change = {};
             change['avanzado'] = !this.state.avanzado;
@@ -185,6 +199,33 @@ class Buscador extends React.Component {
                         <select id="onJuntas" className="form-control js-example-basic-multiple" multiple="multiple">
                             {juntas}
                         </select>
+
+                    </div>
+
+
+                </div>
+                <div className="form-group">
+
+
+                    <label  className="col-sm-2 control-label" htmlFor="c1">Al dia</label>
+
+
+                    <div className="col-sm-2 ">
+                        <input className="form-control" id="c1" type="checkbox"   onChange={this.handleChange2.bind(this, 'aldia')}  defaultChecked />
+
+                    </div>
+                    <label  className="col-sm-2 control-label"  htmlFor="c2">Deudores</label>
+
+
+                    <div className="col-sm-2">
+
+                        <input className="form-control" id="c2"  type="checkbox"  onChange={this.handleChange2.bind(this, 'deudor')} defaultChecked />
+                    </div>
+                    <label  className="col-sm-2 control-label" htmlFor="c3">Compromiso</label>
+
+
+                    <div className="col-sm-2">
+                        <input className="form-control" id="c3"  type="checkbox"  onChange={this.handleChange2.bind(this, 'compromiso')} defaultChecked />
 
                     </div>
 

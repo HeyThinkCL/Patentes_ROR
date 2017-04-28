@@ -1,0 +1,35 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <h1 class="title-bar-title">
+              <span class="d-ib">Finanzas del sistema
+
+              </span>
+
+      </h1>
+      <p class="title-bar-description">
+        <small>Mediante este panel puedes agregar y editar usuarios de la plataforma.</small>
+      </p>
+    </div>
+
+        <div class="row gutter-xs">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header bg-primary">
+                <small>Ingresos del sistema diariamente </small>
+              </div>
+              <div class="card-body">
+
+
+                <%= line_chart @data, @options %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+  </div>
+</div>

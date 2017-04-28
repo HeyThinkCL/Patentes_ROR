@@ -20,6 +20,11 @@ class RegistrarVisitasController < ApplicationController
     local.representante.email=params[:email]
     local.representante.celular=params[:celular]
     local.representante.telefono=params[:telefono]
+
+    local.futuro_pago= visita.futuro_pago
+    local.deudor= false
+    local.save
+
     visita.usuario=@usuario
     @local=local
     visita.save()

@@ -18,6 +18,10 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'registrar_visita', 'registrar_visitas'
   inflect.irregular 'junta_vecinos', 'juntas_vecinos'
   inflect.irregular 'solicitud', 'solicitudes'
+  inflect.irregular 'excel', 'excel'
+  inflect.irregular 'inspector', 'inspectores'
+  inflect.irregular 'gestion', 'gestiones'
+  inflect.irregular 'finanza', 'finanzas'
 
   # inflect.uncountable %w( fish sheep )
 end

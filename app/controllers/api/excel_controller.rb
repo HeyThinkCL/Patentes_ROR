@@ -1,4 +1,4 @@
-class Api::LocalizarController < ApplicationController
+class Api::ExcelController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
@@ -22,46 +22,46 @@ class Api::LocalizarController < ApplicationController
     end
     begin
 
-    giros=[]
+      giros=[]
 
-    p  params[:giro][0]
-    params[:giro].each { |giro|
+      p  params[:giro][0]
+      params[:giro].each { |giro|
 
-      giros.push("locales.giro = '#{giro}'")
+        giros.push("locales.giro = '#{giro}'")
 
-    }
+      }
 
 
-    giros= giros.join(" or ")
-    if params[:giro].length
+      giros= giros.join(" or ")
+      if params[:giro].length
 
-      sql = sql<<"and (#{giros}) "
-    end
+        sql = sql<<"and (#{giros}) "
+      end
 
     rescue
     end
 
     begin
 
-    juntas=[]
+      juntas=[]
 
-    params[:junta_vecinos].each { |x_id|
+      params[:junta_vecinos].each { |x_id|
 
-      junta = JuntaVecinos.where(:numero=>x_id.split("-")[0].gsub(" ","")).first()
+        junta = JuntaVecinos.where(:numero=>x_id.split("-")[0].gsub(" ","")).first()
 
-      juntas.push("juntas_vecinos_id = #{junta.id}")
-       }
+        juntas.push("juntas_vecinos_id = #{junta.id}")
+      }
 
-    juntas=juntas.join(" or ")
-    if (params[:junta_vecinos].length)
+      juntas=juntas.join(" or ")
+      if (params[:junta_vecinos].length)
 
-      sql = sql<<"and (#{juntas})"
+        sql = sql<<"and (#{juntas})"
 
-    end
+      end
 
 
 
-  rescue
+    rescue
     end
 
 
@@ -95,7 +95,25 @@ class Api::LocalizarController < ApplicationController
 
     sql = "SELECT locales.id,rol,nombre_social,direccion,giro,rut,st_astext(ubicacion) as ubicacion,dv,pago,deuda,deudor,futuro_pago  FROM locales,representantes where representantes_id=representantes.id and "<<sql<<" order by locales.ubicacion asc"
     p sql
-    render json:ActiveRecord::Base.connection.execute(sql)
-    # render json:Local.joins(",representantes").where(sql).all(), include:[:representante]
+    @data=  ActiveRecord::Base.connection.execute(sql)
+    respond_to do |format|
+      format.xlsx
+    end
+
+
+=begin
+    wb = xlsx_package.workbook
+    wb.add_worksheet(name: "Locales") do |sheet|
+      sheet.add_row ["id","rol","rol","nombre_social","direccion","giro","rut","dv","pago","deuda","deudor","futuro_pago"]
+      data.each do |local|
+        sheet.add_row [local.id,local.rol,local.nombre_social,local.direccion,local.giro,local.rut,local.dv,local.pago,local.deuda,local.deudor,local.futuro_pago]
+end
+
+      end
+
+
+    return wb
+=end
   end
 end
+

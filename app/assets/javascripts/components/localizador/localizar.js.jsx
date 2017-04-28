@@ -8,19 +8,26 @@ class Localizar extends React.Component {
             mapas: [],
             change: false,
             seleccionado: undefined,
-            seleccionado2:false,
+            seleccionado2: false,
             detalle: undefined,
-            map:map,
-            visitas:[],
-            pagos:[]
+            map: map,
+            visitas: [],
+            pagos: [],
+            mensaje: null,
+            calculadora: null
         }
+
+
 
         _this=this;
 
 
-        this.funcionEnPadre = function (x) {
+        this.funcionEnPadre = function (x,i) {
 
-            this.setState({resultados:x,mapas:x,change:!this.state.change,map:map,detalle:undefined,seleccionado:undefined,seleccionado2:false});
+            mensaje =x.length?null:<Mensaje></Mensaje>
+            calculadora = x.length?<Calculadora resultados={x} busqueda={i}></Calculadora>:null
+
+            this.setState({calculadora:calculadora,resultados:x,mapas:x,change:!this.state.change,map:map,detalle:undefined,seleccionado:undefined,seleccionado2:false,mensaje:mensaje});
 
         }
         this.funcionEnPadre2 = function (x,mapa) {
@@ -58,6 +65,10 @@ class Localizar extends React.Component {
 
 
     render() {
+
+
+        calculadora = this.state.calculadora
+
         return  <div>
             <div className="layout-content">
                 <div className="layout-content-body">
@@ -72,6 +83,11 @@ class Localizar extends React.Component {
                     </div>
 
                     <div className="row">
+                        <div className="col-md-12">
+                        {this.state.mensaje}
+                        </div>
+                    </div>
+                    <div className="row">
                         <div className="col-md-6">
                             <Mapa map={this.state.map} nounico={this.nounico.bind(this)} juntasvecinos={this.props.juntasvecinos}  funcion={this.funcionEnPadre2.bind(this)}  resultados={this.state.mapas} change={this.state.change} seleccionar_mapa={this.seleccionar_mapa2.bind(this)}></Mapa>
                         </div>
@@ -82,6 +98,13 @@ class Localizar extends React.Component {
                             <Resultado funcion={this.funcionEnPadre2.bind(this)} detalle={this.detalle.bind(this)} seleccionado={this.state.seleccionado}></Resultado>
 
                         </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="col-md-12">
+                            {calculadora}
+
+                            </div>
                     </div>
 
 

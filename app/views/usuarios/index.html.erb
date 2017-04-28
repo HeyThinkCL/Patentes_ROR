@@ -20,7 +20,7 @@
                 <small>Usuarios del sistema </small>
               </div>
               <div class="card-body">
-                <ul class="media-list"><% Usuario.all().each do |usuario| %>
+                <ul class="media-list"><% Usuario.all().order("apellido").each do |usuario| %>
                   <li class="media">
                     <div class="media-middle media-left">
                       <a href="#">
@@ -46,35 +46,39 @@
       </div>
       <div class="col-md-7">
         <div class="demo-form-wrapper">
-          <form class="form form-horizontal">
+
+          <%= form_for @usuario_nuevo, url: {action: "create"},html:{:class=>"form form-horizontal"} do |f| %>
             <div class="form-group">
-              <label class="col-sm-3 control-label" for="form-control-1">Nombre</label>
+
+              <%= f.label :nombre,{:class=>"col-sm-3 control-label"} %>
               <div class="col-sm-9">
-                <input id="form-control-1" class="form-control" type="text">
+                <%= f.text_field :nombre,{:class=>"form-control"} %>
+
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label" for="form-control-1">Apellido</label>
+              <%= f.label :apellido,{:class=>"col-sm-3 control-label"} %>
+
               <div class="col-sm-9">
-                <input id="form-control-1" class="form-control" type="text">
+                <%= f.text_field :apellido,{:class=>"form-control"} %>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: none">
               <label class="col-sm-3 control-label" for="form-control-1">Rut</label>
               <div class="col-sm-9">
-                <input id="form-control-1" class="form-control" type="text">
+                <%= f.text_field :rut,{:class=>"form-control"} %>
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label" for="form-control-1">E-mail</label>
               <div class="col-sm-9">
-                <input id="form-control-1" class="form-control" type="email">
+                <%= f.text_field :email,{:class=>"form-control"} %>
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label" for="form-control-2">Contraseña</label>
               <div class="col-sm-9">
-                <input id="form-control-2" class="form-control" type="password" value="test.1234">
+                <%= f.password_field :passwd,{:class=>"form-control"} %>
               </div>
             </div>
 
@@ -83,21 +87,19 @@
             <div class="form-group">
               <label class="col-sm-3 control-label" for="form-control-6">Rol</label>
               <div class="col-sm-9">
-                <select id="form-control-6" class="form-control">
-                  <option value="c-plus-plus">Administrador</option>
-                  <option value="css">Inspector</option>
-                  <option value="java">Cajero</option>
 
-                </select>
+                <%= f.select("roles_id",Rol.all.map { |rol| [ rol.nombre,rol.id] }, {prompt: 'Seleccione rol'},{:class=>"form-control"}) %>
+
               </div>
             </div>
 
             <div class="form-group">
-              <button class="btn btn-primary btn-block btn-next" type="button"  >Crear usuario</button>
+
+              <%= f.submit "Crear usuario",{:class=>"btn btn-primary btn-block btn-next"} %>
             </div>
 
 
-          </form>
+        <%end%>
         </div>
 
       </div>

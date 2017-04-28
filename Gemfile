@@ -59,3 +59,10 @@ gem 'material_icons'
 
 gem 'simple-spreadsheet'
 gem "select2-rails"
+
+gem 'chartjs-ror'
+
+
+gem 'rubyzip'
+gem 'axlsx', '2.1.0.pre'
+gem 'axlsx_rails'
