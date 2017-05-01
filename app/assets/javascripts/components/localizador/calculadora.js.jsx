@@ -1,23 +1,22 @@
 class Calculadora extends React.Component {
     static busqueda;
-    constructor(props){
+    constructor(props) {
         super(props);
         _this = this;
         clickme = function () {
 
-            console.log(busqueda);
 
-            $.post("/api/excel",busqueda,function (dato) {
-
-                var win=window.open('about:blank');
-                with(win.document)
-                {
-                    open();
-                    write(dato);
-                    close();
+            var str = "";
+            for (var key in busqueda) {
+                if (str != "") {
+                    str += "&";
                 }
+                str += key + "=" + encodeURIComponent(busqueda[key]);
+            }
 
-            });
+
+            window.open("/api/excel/descargar.xlsx?" + str)
+
 
         }
     }

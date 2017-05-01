@@ -1,0 +1,9 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Resultados") do |sheet|
+
+ sheet.add_row ["id","rol","Nombre Social","Direccion","Giro","Rut","dv","Pago","Deuda","Deudor","Futuro Pago" ]
+
+  @datas.each do |data|
+    sheet.add_row [data['id'], data['rol'], data['nombre_social'], data['direccion'], data['giro'], data['rut'], data['dv'], data['pago'], data['deuda'], data['deudor'], data['futuro_pago'] ]
+  end
+end

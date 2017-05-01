@@ -2,7 +2,7 @@ class Api::ExcelController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  def create
+  def show
     sql = "locales.ubicacion is not null and error='f' and locales.representantes_id=representantes.id "
     rol = params[:rol].to_s()
 
@@ -95,10 +95,13 @@ class Api::ExcelController < ApplicationController
 
     sql = "SELECT locales.id,rol,nombre_social,direccion,giro,rut,st_astext(ubicacion) as ubicacion,dv,pago,deuda,deudor,futuro_pago  FROM locales,representantes where representantes_id=representantes.id and "<<sql<<" order by locales.ubicacion asc"
     p sql
-    @data=  ActiveRecord::Base.connection.execute(sql)
+    @datas=  ActiveRecord::Base.connection.execute(sql)
+
+
     respond_to do |format|
       format.xlsx
     end
+
 
 
 =begin
