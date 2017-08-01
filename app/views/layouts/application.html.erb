@@ -184,7 +184,7 @@
             </li>
             <%end%>
 
-            <%if @current_user.roles_id != 6 || @current_user.roles_id != 5 %>
+            <%if @current_user.roles_id != 6 && @current_user.roles_id != 5 %>
             <li class="sidenav-item">
               <a href="/usuarios">
                 <span class="sidenav-icon icon icon-columns"></span>

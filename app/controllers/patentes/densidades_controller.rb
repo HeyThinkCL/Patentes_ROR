@@ -5,3 +5,4 @@ class Patentes::DensidadesController < ActionController::Base
 
   end
 end
+
