@@ -1,0 +1,24 @@
+<div>
+  <h3>Se ha creado un nuevo Ticket de Soporte para <%=@nombre.upcase%></h3>
+</div>
+<div class="card-body">
+  <table class="table table-bordered table-fixed">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Problema</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%=@nombre%></td>
+        <td><%=@email%></td>
+        <td><%=@problema%></td>
+        <tdd><%=@mensaje%></tdd>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

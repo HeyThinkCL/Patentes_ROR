@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    resources :locales
+  end
   namespace :gestiones do
     resources :gestiones
   end
   namespace :gestiones do
     resources :finanzas
   end
-  resources :login
+  # resources :login
   resources :ingresar_pagos
   resources :rutas
   resources :visitas
@@ -28,10 +32,15 @@ Rails.application.routes.draw do
     resources :localizar
     resources :patentes
     resources :densidades
-
     resources :error
   end
- # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/' => "dashboard#index"
+
+  get '/soporte', to: 'soporte#new'
+  post '/soporte', to: 'soporte#create'
+  get '/home' => "dashboard#index"
   post '/locales_guardar' => 'locales#guardar'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  get '/logout',  to: 'sessions#destroy'
+  root 'sessions#new'
 end

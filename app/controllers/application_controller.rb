@@ -1,19 +1,22 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authenticate_request
 
-
-  before_action :ensure_login
   protected
-  def ensure_login
-
-
+  def authenticate_request
     if session[:email]
-      @usuario=Usuario.where(:email=>session[:email]).first
+      @current_user = Usuario.find_by_email(session[:email])
       @comuna = Comuna.first()
     else
-      redirect_to action: 'index',controller: 'login', status: 302
+      redirect_to action: 'new',controller: 'sessions', status: 302
     end
   end
 
+  private
+    def user_not_authorized
+      flash[:warning] = "Usuario no autorizado para ejecutar esta acción"
+      redirect_to root_path
+    end
 
 end
+

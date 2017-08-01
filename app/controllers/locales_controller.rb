@@ -1,6 +1,5 @@
 class LocalesController <  ApplicationController
-  skip_before_action :verify_authenticity_token
-
+  before_action :roles
 
   def get_data(latitud,longitud,giro,rut)
 
@@ -46,6 +45,7 @@ class LocalesController <  ApplicationController
 
     render component:'Geolocation',  props: { patentes:Patente.order("nombre asc").all(),'Comuna':Comuna.first(),'giros':Local.select("giro,patentes_id").group("giro,patentes_id").order("giro asc").all()}
   end
+
   def create
 
     render json:get_data(params[:lat],params[:lng],params[:giro],params[:rut].split("-")[0])
@@ -94,5 +94,12 @@ class LocalesController <  ApplicationController
     local.save
 
     render json:{'id':local.id}
+  end
+
+  private
+  def roles
+    if @current_user.roles_id == 5
+      redirect_to 'dashboard'
+    end
   end
 end

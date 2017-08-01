@@ -1,9 +1,6 @@
 class Gestiones::FinanzasController < ApplicationController
 
   def index
-
-
-
     @data = {
         labels: ["3", "4", "9", "10", "12", "16", "19"],
         datasets: [

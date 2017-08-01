@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -61,8 +61,10 @@ gem 'simple-spreadsheet'
 gem "select2-rails"
 
 gem 'chartjs-ror'
-
+gem 'axios_rails'
 
 gem 'rubyzip'
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
+gem 'mail'
+gem 'pundit'

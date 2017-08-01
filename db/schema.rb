@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228052316) do
+ActiveRecord::Schema.define(version: 20170714174857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,19 +22,19 @@ ActiveRecord::Schema.define(version: 20170228052316) do
     t.string    "fondo"
     t.integer   "zoom"
     t.date      "expiracion"
-    t.geography "area",       limit: {:srid=>4326, :type=>"polygon", :geographic=>true}
-    t.geography "ubicacion",  limit: {:srid=>4326, :type=>"point", :geographic=>true}
-    t.datetime  "created_at",                                                            null: false
-    t.datetime  "updated_at",                                                            null: false
+    t.geography "area",       limit: {:srid=>0, :type=>"geometry"}
+    t.geography "ubicacion",  limit: {:srid=>0, :type=>"geometry"}
+    t.datetime  "created_at",                                       precision: 6, null: false
+    t.datetime  "updated_at",                                       precision: 6, null: false
   end
 
   create_table "juntas_vecinos", force: :cascade do |t|
     t.integer   "numero"
     t.string    "nombre"
-    t.geography "area",       limit: {:srid=>4326, :type=>"polygon", :geographic=>true}
+    t.geography "area",       limit: {:srid=>0, :type=>"geometry"}
     t.integer   "comunas_id"
-    t.datetime  "created_at",                                                            null: false
-    t.datetime  "updated_at",                                                            null: false
+    t.datetime  "created_at",                                       precision: 6, null: false
+    t.datetime  "updated_at",                                       precision: 6, null: false
     t.index ["comunas_id"], name: "index_juntas_vecinos_on_comunas_id", using: :btree
   end
 
@@ -57,17 +57,18 @@ ActiveRecord::Schema.define(version: 20170228052316) do
     t.string    "departamento"
     t.string    "oficina"
     t.string    "local"
-    t.boolean   "minimo",                                                                     default: false
-    t.boolean   "deudor",                                                                     default: false
-    t.boolean   "error",                                                                      default: false
-    t.geography "ubicacion",         limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.boolean   "minimo",                                                                default: false
+    t.boolean   "deudor",                                                                default: false
+    t.boolean   "error",                                                                 default: false
+    t.geography "ubicacion",         limit: {:srid=>0, :type=>"geometry"}
     t.integer   "patentes_id"
     t.integer   "representantes_id"
     t.integer   "usuarios_id"
     t.integer   "juntas_vecinos_id"
     t.integer   "comunas_id"
-    t.datetime  "created_at",                                                                                 null: false
-    t.datetime  "updated_at",                                                                                 null: false
+    t.datetime  "created_at",                                              precision: 6,                 null: false
+    t.datetime  "updated_at",                                              precision: 6,                 null: false
+    t.datetime  "futuro_pago",                                             precision: 6
     t.index ["comunas_id"], name: "index_locales_on_comunas_id", using: :btree
     t.index ["juntas_vecinos_id"], name: "index_locales_on_juntas_vecinos_id", using: :btree
     t.index ["patentes_id"], name: "index_locales_on_patentes_id", using: :btree
@@ -78,9 +79,9 @@ ActiveRecord::Schema.define(version: 20170228052316) do
   create_table "metodos_pagos", force: :cascade do |t|
     t.string   "metodo"
     t.integer  "comision"
-    t.datetime "fin_servicio"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "fin_servicio", precision: 6
+    t.datetime "created_at",   precision: 6, null: false
+    t.datetime "updated_at",   precision: 6, null: false
   end
 
   create_table "pagos", force: :cascade do |t|
@@ -88,8 +89,8 @@ ActiveRecord::Schema.define(version: 20170228052316) do
     t.integer  "locales_id"
     t.integer  "metodos_pagos_id"
     t.integer  "pagado"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",       precision: 6, null: false
+    t.datetime "updated_at",       precision: 6, null: false
     t.index ["locales_id"], name: "index_pagos_on_locales_id", using: :btree
     t.index ["metodos_pagos_id"], name: "index_pagos_on_metodos_pagos_id", using: :btree
     t.index ["usuarios_id"], name: "index_pagos_on_usuarios_id", using: :btree
@@ -98,8 +99,8 @@ ActiveRecord::Schema.define(version: 20170228052316) do
   create_table "patentes", force: :cascade do |t|
     t.string   "nombre"
     t.string   "tipo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "representantes", force: :cascade do |t|
@@ -113,16 +114,16 @@ ActiveRecord::Schema.define(version: 20170228052316) do
     t.string   "telefono"
     t.string   "celular"
     t.integer  "usuarios_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",    precision: 6, null: false
+    t.datetime "updated_at",    precision: 6, null: false
     t.index ["usuarios_id"], name: "index_representantes_on_usuarios_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
     t.string   "nombre"
     t.integer  "permiso"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "solicitudes", force: :cascade do |t|
@@ -144,17 +145,17 @@ ActiveRecord::Schema.define(version: 20170228052316) do
     t.string    "departamento"
     t.string    "oficina"
     t.string    "local"
-    t.boolean   "minimo",                                                                     default: false
-    t.boolean   "deudor",                                                                     default: false
-    t.boolean   "error",                                                                      default: false
-    t.geography "ubicacion",         limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.boolean   "minimo",                                                                default: false
+    t.boolean   "deudor",                                                                default: false
+    t.boolean   "error",                                                                 default: false
+    t.geography "ubicacion",         limit: {:srid=>0, :type=>"geometry"}
     t.integer   "patentes_id"
     t.integer   "representantes_id"
     t.integer   "usuarios_id"
     t.integer   "juntas_vecinos_id"
     t.integer   "comunas_id"
-    t.datetime  "created_at",                                                                                 null: false
-    t.datetime  "updated_at",                                                                                 null: false
+    t.datetime  "created_at",                                              precision: 6,                 null: false
+    t.datetime  "updated_at",                                              precision: 6,                 null: false
     t.index ["comunas_id"], name: "index_solicitudes_on_comunas_id", using: :btree
     t.index ["juntas_vecinos_id"], name: "index_solicitudes_on_juntas_vecinos_id", using: :btree
     t.index ["patentes_id"], name: "index_solicitudes_on_patentes_id", using: :btree
@@ -167,10 +168,11 @@ ActiveRecord::Schema.define(version: 20170228052316) do
     t.string   "apellido"
     t.integer  "rut"
     t.string   "email"
-    t.string   "passwd"
     t.integer  "roles_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      precision: 6, null: false
+    t.datetime "updated_at",      precision: 6, null: false
+    t.string   "password_digest"
+    t.string   "remember_digest"
     t.index ["roles_id"], name: "index_usuarios_on_roles_id", using: :btree
   end
 
@@ -178,20 +180,15 @@ ActiveRecord::Schema.define(version: 20170228052316) do
     t.integer  "locales_id"
     t.integer  "usuarios_id"
     t.integer  "roles_id"
-    t.datetime "futuro_pago"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "futuro_pago", precision: 6
+    t.datetime "created_at",  precision: 6, null: false
+    t.datetime "updated_at",  precision: 6, null: false
     t.index ["locales_id"], name: "index_visitas_on_locales_id", using: :btree
     t.index ["roles_id"], name: "index_visitas_on_roles_id", using: :btree
     t.index ["usuarios_id"], name: "index_visitas_on_usuarios_id", using: :btree
   end
 
   add_foreign_key "juntas_vecinos", "comunas", column: "comunas_id"
-  add_foreign_key "locales", "comunas", column: "comunas_id"
-  add_foreign_key "locales", "juntas_vecinos", column: "juntas_vecinos_id"
-  add_foreign_key "locales", "patentes", column: "patentes_id"
-  add_foreign_key "locales", "representantes", column: "representantes_id"
-  add_foreign_key "locales", "usuarios", column: "usuarios_id"
   add_foreign_key "pagos", "locales", column: "locales_id"
   add_foreign_key "pagos", "metodos_pagos", column: "metodos_pagos_id"
   add_foreign_key "pagos", "usuarios", column: "usuarios_id"

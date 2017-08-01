@@ -1,5 +1,5 @@
 class RegistrarVisitasController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  before_action :roles
 
   def index
 
@@ -30,11 +30,12 @@ class RegistrarVisitasController < ApplicationController
     visita.save()
     local.representante.save()
     @visita=visita
-
-
-    p params
-
-
-
   end
+
+  private
+    def roles
+      if @current_user.roles_id == 6
+        redirect_to 'dashboard'
+      end
+    end
 end

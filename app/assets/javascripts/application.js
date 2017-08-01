@@ -21,5 +21,5 @@
 //= require components
 //= require_tree .
 //= require select2
-
-var map;
+//= require axios
+// var map;

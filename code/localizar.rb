@@ -44,14 +44,9 @@ locales =Local.where(:ubicacion => nil,:error => false).all()
 
 locales.each{|local|
 
-  p local.id
-
   direccion = local.direccion
-  p direccion
   direccion=  fin(direccion)<< ", Ñuñoa"
-  p direccion
   results = gmaps.geocode(direccion)
-  p results
   exit()
 
   begin

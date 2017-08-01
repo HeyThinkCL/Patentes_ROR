@@ -1,45 +1,56 @@
 class UsuariosController < ApplicationController
-  def show
-    @usuario_nuevo= Usuario.find(params[:id])
-  end
-  def update
+  before_action :roles
+  before_action :set_usuario, only: [:update,:destroy]
 
-    @usuario = Usuario.find(params[:id])
-    @usuario.nombre=params['usuario']['nombre']
-    @usuario.apellido=params['usuario']['apellido']
-    @usuario.email=params['usuario']['email']
-
-    if params['usuario']['passwd'] != ""
-      @usuario.passwd=params['usuario']['passwd']
-    end
-
-    @usuario.roles_id = params['usuario']['roles_id']
-    @usuario.save
-
-    redirect_to action:'index'
-
-  end
 
   def index
-
-    @usuario_nuevo = Usuario.new
-
+    @usuarios = Usuario.where.not(:roles_id => nil).order('apellido')
   end
-  def create
 
+  def new
     @usuario = Usuario.new
-    @usuario.nombre=params['usuario']['nombre']
-    @usuario.apellido=params['usuario']['apellido']
-    @usuario.email=params['usuario']['email']
-
-
-    @usuario.passwd=params['usuario']['passwd']
-
-    @usuario.roles_id = params['usuario']['roles_id']
-    @usuario.save
-    redirect_to action:'index'
-
   end
 
+  def create
+    @usuario = Usuario.new(usuario_params)
+    @usuario.roles_id = params['usuario']['roles_id']
+    if @usuario.save
+      redirect_to action:'index'
+    end
+  end
 
+  def edit
+    @usuario = Usuario.find(params[:id])
+  end
+
+  def update
+    @usuario.update(:nombre => params[:usuario][:nombre],:apellido => params[:usuario][:apellido])
+    @usuario.roles_id = params[:usuario][:roles_id]
+    if @usuario.save
+      redirect_to usuarios_path
+    else
+      redirect_to usuarios_path
+    end
+  end
+
+  def destroy
+    @usuario.destroy
+    redirect_to usuarios_path
+  end
+
+  private
+
+    def set_usuario
+      @usuario = Usuario.find(params[:id])
+    end
+
+    def usuario_params
+      params.require(:usuario).permit(:nombre,:apellido,:email,:password,:password_confirmation)
+    end
+
+    def roles
+      if @current_user.roles_id == 6
+        redirect_to 'dashboard'
+      end
+    end
 end

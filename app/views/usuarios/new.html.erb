@@ -1,0 +1,71 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <h1 class="title-bar-title">
+        <span class="d-ib"> Crear usuario</span>
+      </h1>
+    </div>
+    <div class="row gutter-xs p-a-md">
+      <div class="col-md-7">
+        <div class="demo-form-wrapper">
+          <%= form_for :usuario, url:usuarios_path ,:html => {:class=>"form form-horizontal"} do |f| %>
+              <div class="form-group md-label-floating">
+                <%= f.label :nombre,{:class=>"col-sm-3 control-label"} %>
+                <div class="col-sm-9">
+                  <%= f.text_field :nombre,{:class=>"form-control"} %>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :apellido,{:class=>"col-sm-3 control-label"} %>
+
+                <div class="col-sm-9">
+                  <%= f.text_field :apellido,{:class=>"form-control"} %>
+                </div>
+              </div>
+              <div class="form-group" style="display: none">
+                <label class="col-sm-3 control-label" for="form-control-1">Rut</label>
+                <div class="col-sm-9">
+                  <%= f.text_field :rut,{:class=>"form-control"} %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="form-control-1">Email</label>
+                <div class="col-sm-9">
+                  <%= f.text_field :email,{:class=>"form-control"} %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="form-control-2">Contraseña</label>
+                <div class="col-sm-9">
+                  <%= f.password_field :password,{:class=>"form-control"} %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="form-control-2">Confirmar Contraseña</label>
+                <div class="col-sm-9">
+                  <%= f.password_field :password_confirmation,{:class=>"form-control"} %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="form-control-6">Rol</label>
+                <div class="col-sm-9">
+                  <%= f.select("roles_id",Rol.all.collect { |rol| [ rol.nombre,rol.id] }, {include_blank: false},{:class=>"form-control"}) %>
+                </div>
+              </div>
+              <div class="col-md-offset-5">
+                <div class="form-group col-md-4">
+                  <%=link_to "Volver", usuarios_path, class: "btn btn-primary btn-block btn-next"%>
+                </div>
+                <div class="form-group col-md-5">
+                  <%= f.submit "Guardar", {:class=>"btn btn-primary btn-block btn-next col-md-offset-4"} %>
+                </div>
+              </div>
+
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

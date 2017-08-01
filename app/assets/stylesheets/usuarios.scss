@@ -1,3 +1,26 @@
-// Place all the styles related to the usuarios controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table-fixed{
+  width: 100%;
+  tbody{
+    height:300px;
+    overflow-y:auto;
+    width: 100%;
+  }
+  thead,tbody,tr,td,th{
+    display:block;
+  }
+  tbody{
+    td{
+      float:left;
+    }
+  }
+  thead {
+    tr{
+      th{
+        float:left;
+        background-color: rgb(47, 64, 80);
+        border-color:#2f4050;
+      }
+    }
+  }
+}

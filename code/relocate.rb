@@ -25,9 +25,7 @@ def fin(direccion)
         return dire.join(' ')
       end
     end
-
     ix = ix +1
-
   }
 end
 
@@ -43,12 +41,8 @@ locales = Local.joins([",comunas"]).where("ST_Within(ST_GeomFromText(st_astext(l
 
 locales.each{|local|
 
-  p local.id
-
   direccion = local.direccion
-  p direccion
   direccion=  fin(direccion)<< ", Ñuñoa"
-  p direccion
   results = gmaps.geocode(direccion)
   results.each { |result|
     sql = "SELECT  ST_Within(ST_GeomFromText('POINT(#{result[:geometry][:location][:lng]} #{result[:geometry][:location][:lat]})', 4326),ST_GeomFromText(st_astext(area), 4326)) as dentro FROM comunas"
@@ -65,6 +59,4 @@ locales.each{|local|
 
     end
   }
-
-
 }
